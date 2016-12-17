@@ -1,0 +1,376 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server" ng-app="Chofer" ng-controller="LandingPageController">
+    <meta name="viewport" content="width=device-width" />
+    <title>Carta de Porte<asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,300,700">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="../Content/bower_components/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../Content/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Content/bower_components/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="../Content/bower_components/select2-bootstrap-theme/dist/select2-bootstrap.min.css">
+    <link rel="stylesheet" href="../Content/bower_components/jquery-icheck/skins/minimal/_all.css">
+    <link rel="stylesheet" href="../Content/bower_components/bootstrap-3-timepicker/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" href="../Content/bower_components/bootstrap-datepicker/css/datepicker3.css">
+    <link rel="stylesheet" href="../Content/bower_components/bootstrap-jasny/dist/css/jasny-bootstrap.css">
+    <link rel="stylesheet" href="../Content/bower_components/jquery-simplecolorpicker/jquery.simplecolorpicker.css">
+    <link rel="stylesheet" href="../Content/css/mvpready-admin.css">
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body class="layout-fixed  ">
+        <div id="wrapper">
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        <a href="/Views/Chofer.aspx" class="logo">
+                            <asp:Label Text="asd" runat="server" ID="lblCresud" />
+                        </a>
+                    </div>
+                    <button class="navbar-toggle pull-right" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <i class="fa fa-cog"></i>
+                    </button>
+                </div>
+                <!-- /.navbar-header -->
+            </div>
+        </div>
+        <div class="sidebar">
+
+            <div class="sidebar-bg"></div>
+            <!-- /.sidebar-bg -->
+
+            <div class="sidebar-trigger sidebar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <i class="fa fa-bars"></i>
+            </div>
+            <!-- /.sidebar-trigger -->
+
+            <div class="sidebar-inner sidebar-collapse collapse">
+
+                <ul class="sidebar-menu">
+
+
+                    <li class="sidebar-header">Menu
+        </li>
+
+                    <li class="dropdown has_sub active open">
+
+                        <a class="">
+                            <i class="fa fa-edit"></i>Administración
+                            <span class="">
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </span>
+                        </a>
+
+                        <ul class="list-unstyled" style="">
+                            <li>
+                                <a href="Chofer.aspx">Chofer</a>
+                            </li>
+
+                            <li>
+                                <a href="./form-pickers.html">Pickers &amp; Choice</a>
+                            </li>
+
+                            <li>
+                                <a href="./form-slider.html">Sliders <span class="label label-secondary pull-right">New</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="./form-wizard.html">Wizard <span class="label label-secondary pull-right">New</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="./form-validation.html">Validation
+              </a>
+                            </li>
+
+                            <li>
+                                <a href="./form-wysiwyg.html">WYSIWYG <span class="label label-secondary pull-right">New</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown has_sub ">
+                        <a href="http://jumpstartthemes.com/#" class="">
+                            <i class="fa fa-table"></i>
+
+                            Tables
+
+           
+
+                            <span class="pull-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+
+                        <ul class="list-unstyled" style="">
+                            <li>
+                                <a href="./components-tables.html">Basic Tables
+              </a>
+                            </li>
+
+                            <li>
+                                <a href="./components-datatables.html">Data Tables <small>(Advanced)</small>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="">
+                        <a href="./components-tabs.html">
+                            <i class="fa fa-bars dropdown-icon "></i>
+                            Tabs &amp; Accordions
+          </a>
+                    </li>
+
+                    <li class="">
+                        <a href="./components-popups.html">
+                            <i class="fa fa-calendar-o dropdown-icon "></i>
+                            Popups &amp; Alerts
+          </a>
+                    </li>
+
+                    <li class="">
+                        <a href="./components-charts.html">
+                            <i class="fa fa-line-chart dropdown-icon "></i>
+                            Charts
+          </a>
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li class="sidebar-header">Example Pages
+        </li>
+
+                    <li class="dropdown has_sub ">
+                        <a href="http://jumpstartthemes.com/#" class="">
+                            <i class="fa fa-file-text-o"></i>
+
+                            Demo Pages
+
+           
+
+                            <span class="pull-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+
+                        <ul class="list-unstyled">
+
+                            <li>
+                                <a href="./page-profile.html">Profile
+              </a>
+                            </li>
+
+                            <li>
+                                <a href="./page-settings.html">Settings
+              </a>
+                            </li>
+
+                            <li>
+                                <a href="./page-faq.html">FAQ
+              </a>
+                            </li>
+
+                            <li>
+                                <a href="./page-pricing-plans.html">Plans & Billing
+              </a>
+                            </li>
+
+                            <li>
+                                <a href="./page-pricing-table.html">Pricing Table
+              </a>
+                            </li>
+
+                            <li>
+                                <a href="./pages-gallery.html">Gallery
+              </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown has_sub ">
+
+                        <a href="http://jumpstartthemes.com/#" class="">
+                            <i class="fa fa-file-text-o"></i>
+
+                            Utilities
+
+             
+
+                            <span class="pull-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+
+                        <ul class="list-unstyled">
+
+                            <li>
+                                <a href="./page-sitemap.html">Sitemap
+                </a>
+                            </li>
+
+                            <li>
+                                <a href="./page-blank.html">Blank Slate
+                </a>
+                            </li>
+
+                            <li>
+                                <a href="./page-404.html">404 Error
+                </a>
+                            </li>
+
+                            <li>
+                                <a href="./page-500.html">500 Error
+                </a>
+                            </li>
+
+                            <li>
+                                <a href="./page-maintenance.html" target="_blank">Maintenance
+                  &nbsp;
+                 
+                                    <small><i class="fa fa-external-link pull-right text-secondary" style="position: relative; top: 3px;"></i></small>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown has_sub">
+                        <a href="http://jumpstartthemes.com/#" class="">
+
+                            <i class="fa fa-user"></i>
+
+                            Account Pages
+
+             
+
+                            <span class="pull-right">
+                                <i class="fa fa-angle-right"></i>
+                            </span>
+                        </a>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="./account-login.html" target="_blank">Login
+                 
+                                    <small><i class="fa fa-external-link pull-right text-secondary" style="position: relative; top: 3px;"></i></small>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="./account-login-social.html" target="_blank">Login Social
+                 
+                                    <small><i class="fa fa-external-link pull-right text-secondary" style="position: relative; top: 3px;"></i></small>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="./account-signup.html" target="_blank">Signup
+                 
+                                    <small><i class="fa fa-external-link pull-right text-secondary" style="position: relative; top: 3px;"></i></small>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="./account-forgot.html" target="_blank">Forgot Password
+                 
+                                    <small><i class="fa fa-external-link pull-right text-secondary" style="position: relative; top: 3px;"></i></small>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li class="sidebar-header">Templates</li>
+
+                    <li>
+                        <a href="../admin-1/index.html" class="">
+                            <i class="fa fa-desktop"></i>
+                            Admin Layout #1
+            </a>
+                    </li>
+
+                    <li>
+                        <a href="../admin-2/index.html" class="">
+                            <i class="fa fa-desktop"></i>
+
+                            Admin Layout #2
+
+             
+
+                            <span class="label label-secondary pull-right">Current</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../landing/index.html" class="">
+                            <i class="fa fa-desktop"></i>
+
+                            Frontend Template
+            </a>
+                    </li>
+
+                    <li>
+                        <a href="../launch/index.html" class="">
+                            <i class="fa fa-rocket"></i>
+
+                            Launch Template
+            </a>
+                    </li>
+
+                    <li class="divider"></li>
+
+                </ul>
+
+                <div class="clearfix"></div>
+
+            </div>
+            <!-- /.sidebar-inner -->
+
+        </div>
+        <!-- /.side-menu -->
+
+
+    </div>
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <!-- Core JS -->
+    <script src="../Content/bower_components/jquery/dist/jquery.js"></script>
+    <script src="../Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../Content/bower_components/slimscroll/jquery.slimscroll.js"></script>
+    <!-- Plugin JS -->
+    <script src="../Content/bower_components/select2/dist/js/select2.min.js"></script>
+    <script src="../Content/bower_components/jquery-icheck/icheck.min.js"></script>
+    <script src="../Content/bower_components/parsleyjs/dist/parsley.js"></script>
+    <script src="../Content/bower_components/bootstrap-3-timepicker/js/bootstrap-timepicker.js"></script>
+    <script src="../Content/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="../Content/bower_components/bootstrap-jasny/js/fileinput.js"></script>
+    <script src="../Content/bower_components/jquery-simplecolorpicker/jquery.simplecolorpicker.js"></script>
+    <script src="../Content/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="../Content/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="../Content/bower_components/datatables-helper/js/datatables-helper.js"></script>
+    <!-- App JS -->
+    <script src="../Content/global/js/mvpready-core.js"></script>
+    <script src="../Content/global/js/mvpready-helpers.js"></script>
+    <script src="../Scripts/mvpready-admin.js"></script>
+    <!-- Demo JS -->
+    <script src="../Content/global/js/demos/form-pickers.js"></script>
+    <!-- AngularJS -->
+    <script src="../Scripts/AngularJS/angular.min.js"></script>
+    <script src="../Scripts/AngularJS/angular-route.min.js"></script>
+
+</body>
+</html>

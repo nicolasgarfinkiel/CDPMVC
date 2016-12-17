@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B85AEB5F-8462-4566-AC88-E39CDB2705E9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CDP.Repositories</RootNamespace>
+    <AssemblyName>CDP.Repositories</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AfipAuth.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AfipAuth_bkp.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="c1116a.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="c1116aDetalle.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CartaDePorte1116A.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CartasDePorte.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CDPDataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDPDataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CDPDataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CDPDataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CDPDataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Chofer.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChoferDAO.cs" />
+    <Compile Include="Cliente.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cosecha.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empresa.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Especie.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Establecimiento.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetAfipAuth_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetC1116AByCertificado_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetC1116ADetalle_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetC1116A_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCambiosEstados_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCartaDePorteDisponible_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCartasDePorte_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetChoferByCuit_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetChoferUsadas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetChofer_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClienteByCuit_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClienteByOrganizacionVenta_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClienteBySAPID_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClienteCorredorUsadas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClienteDestinatarioUsadas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClienteDestinoUsadas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClienteEntregadorUsadas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClienteIntermediarioUsadas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClientePagadorDelFleteUsadas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClienteRemitenteComercialUsadas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCliente_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCosechaByCodigo_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCosecha_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEmpresaAdmin_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEmpresaByGrupoEmpresa_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEmpresaByIDCliente_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEmpresaBySap_Id_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEmpresa_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEspecie_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEstablecimientoOrigenDestino_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetEstablecimiento_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetGrano_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetGrupoEmpresaByDescripcion_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetGrupoEmpresa_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetLocalidadByFiltro_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetLocalidadByIDProvincia_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetLocalidadByText_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetLocalidad_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetLogSap_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetLoteCartasDePorteReporte_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetLoteCartasDePorte_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetMisReservas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetOneByCodigo_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetPais_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProveedorByCuitOrgSAPID_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProveedorByNumeroDocumento_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProveedorBySAPID_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProveedorInterfaz_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProveedorTitularCartaDePorteUsadas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProveedorTransportistaUsadas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProveedor_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProvincia_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudAnulacionSAP_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudByCDP_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudByCTG_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudByEmpresa_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudEnvioSAP_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudRecibida_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudReporte1116A_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudReporteEmitidas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudReporteGraficoNotIn_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudReporteGrafico_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudReporteRecibidas_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudReporte_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitudTopConfirmacion_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSolicitud_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSox1116AByIdSolicitud_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetSox1116A_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetTipoDeCarta_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetTipoDocumentoSAP_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetTipoGrano_Result.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Grano.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GrupoEmpresa.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="logInterfaz.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogOperaciones.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogSap.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="logsolicitudes.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoteCartasDePorte.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="Pais.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedor.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="proveedor_tmp.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Provincia.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SessionWrapper.cs" />
+    <Compile Include="sol2tmp.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitudes.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitudesRecibidas.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoDeCarta.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoDocumentoSAP.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoEspecie.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoGrano.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vChoferes.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vClienteCorredor.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vClienteDestinatario.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vClienteDestinatarioCambio.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vClienteDestino.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vClienteEntregador.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vClienteIntermediario.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vClientePagadorDelFlete.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vClienteRemitenteComercial.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vClientes.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vCosecha.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vEspecie.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vEstablecimientoDestino.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vEstablecimientoOrigen.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vGranoCosecha.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vRemitoParaguay.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vReporteCDP.cs">
+      <DependentUpon>CDPDataBase.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="CDPDataBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CDPDataBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CDPDataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CDPDataBase.edmx</DependentUpon>
+      <LastGenOutput>CDPDataBase.Context.cs</LastGenOutput>
+    </None>
+    <None Include="CDPDataBase.edmx.diagram">
+      <DependentUpon>CDPDataBase.edmx</DependentUpon>
+    </None>
+    <None Include="CDPDataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CDPDataBase.edmx</DependentUpon>
+      <LastGenOutput>CDPDataBase.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CDP.Domain\CDP.Domain.csproj">
+      <Project>{977407f0-6de7-4daf-96a9-04560829ab5d}</Project>
+      <Name>CDP.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

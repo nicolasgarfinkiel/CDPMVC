@@ -1,0 +1,2184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CartaDePorteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AfipAuth">
+    <Key>
+      <PropertyRef Name="IdAfipAuth" />
+    </Key>
+    <Property Name="IdAfipAuth" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Token" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Sign" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CuitRepresentado" Type="nvarchar" MaxLength="20" />
+    <Property Name="GenerationTime" Type="datetime" />
+    <Property Name="ExpirationTime" Type="datetime" />
+    <Property Name="Service" Type="nvarchar" MaxLength="50" />
+    <Property Name="UniqueID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.AfipAuth_bkp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AfipAuth_bkp">
+    <Key>
+      <PropertyRef Name="IdAfipAuth" />
+    </Key>
+    <Property Name="IdAfipAuth" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Token" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Sign" Type="nvarchar" MaxLength="1000" />
+    <Property Name="CuitRepresentado" Type="nvarchar" MaxLength="20" />
+    <Property Name="GenerationTime" Type="datetime" />
+    <Property Name="ExpirationTime" Type="datetime" />
+    <Property Name="Service" Type="nvarchar" MaxLength="50" />
+    <Property Name="UniqueID" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="c1116a">
+    <Key>
+      <PropertyRef Name="Idc1116a" />
+    </Key>
+    <Property Name="Idc1116a" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NroCertificadoc1116a" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CodigoEstablecimiento" Type="int" />
+    <Property Name="CuitProveedor" Type="nvarchar" MaxLength="200" />
+    <Property Name="RazonSocialProveedor" Type="nvarchar" MaxLength="200" />
+    <Property Name="TipoDomicilio" Type="int" />
+    <Property Name="CalleRutaProductor" Type="nvarchar" MaxLength="200" />
+    <Property Name="NroKmProductor" Type="int" />
+    <Property Name="PisoProductor" Type="nvarchar" MaxLength="50" />
+    <Property Name="OficinaDtoProductor" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodigoLocalidadProductor" Type="int" />
+    <Property Name="CodigoPartidoProductor" Type="int" />
+    <Property Name="CodigoPostalProductor" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodigoEspecie" Type="int" />
+    <Property Name="Cosecha" Type="nvarchar" MaxLength="50" />
+    <Property Name="AlmacenajeDiasLibres" Type="int" />
+    <Property Name="TarifaAlmacenaje" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="GastoGenerales" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Zarandeo" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SecadoDe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SecadoA" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TarifaSecado" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PuntoExceso" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TarifaOtros" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CodigoPartidoOrigen" Type="int" />
+    <Property Name="CodigoPartidoEntrega" Type="int" />
+    <Property Name="NumeroAnalisis" Type="nvarchar" MaxLength="200" />
+    <Property Name="NumeroBoletin" Type="nvarchar" MaxLength="200" />
+    <Property Name="FechaAnalisis" Type="datetime" />
+    <Property Name="Grado" Type="nvarchar" MaxLength="200" />
+    <Property Name="Factor" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ContenidoProteico" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CuitLaboratorio" Type="nvarchar" MaxLength="200" />
+    <Property Name="NombreLaboratorio" Type="nvarchar" MaxLength="200" />
+    <Property Name="PesoBruto" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MermaVolatil" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MermaZarandeo" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MermaSecado" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PesoNeto" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="FechaCierre" Type="datetime" />
+    <Property Name="ImporteIVAServicios" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TotalServicios" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="NumeroCAC" Type="nvarchar" MaxLength="200" />
+    <Property Name="UsuarioCreacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="FechaModificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="c1116aDetalle">
+    <Key>
+      <PropertyRef Name="Idc1116aDetalle" />
+    </Key>
+    <Property Name="Idc1116aDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Idc1116a" Type="int" Nullable="false" />
+    <Property Name="NumeroCartaDePorte" Type="int" />
+    <Property Name="NumeroCertificadoAsociado" Type="int" />
+    <Property Name="KgBrutos" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="FechaRemesa" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CartaDePorte1116A">
+    <Key>
+      <PropertyRef Name="IdCartaDePorte1116A" />
+    </Key>
+    <Property Name="IdCartaDePorte1116A" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdSolicitud" Type="int" Nullable="false" />
+    <Property Name="Numero1116A" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Fecha1116A" Type="datetime" Nullable="false" />
+    <Property Name="UsuarioCreacion" Type="varchar" MaxLength="100" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="varchar" MaxLength="100" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="Activo" Type="int" />
+  </EntityType>
+  <EntityType Name="CartasDePorte">
+    <Key>
+      <PropertyRef Name="IdCartaDePorte" />
+    </Key>
+    <Property Name="IdCartaDePorte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroCartaDePorte" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumeroCee" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdLoteLoteCartasDePorte" Type="int" />
+    <Property Name="Estado" Type="int" />
+    <Property Name="FechaReserva" Type="datetime" />
+    <Property Name="UsuarioReserva" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdGrupoEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Chofer">
+    <Key>
+      <PropertyRef Name="IdChofer" />
+    </Key>
+    <Property Name="IdChofer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="150" />
+    <Property Name="Apellido" Type="nvarchar" MaxLength="150" />
+    <Property Name="Cuit" Type="nvarchar" MaxLength="50" />
+    <Property Name="Camion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Acoplado" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioCreacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="Activo" Type="bit" />
+    <Property Name="EsChoferTransportista" Type="bit" />
+    <Property Name="IdGrupoEmpresa" Type="int" Nullable="false" />
+    <Property Name="Domicilio" Type="nvarchar" MaxLength="100" />
+    <Property Name="Marca" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="IdSapOrganizacionDeVenta" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="NombreFantasia" Type="nvarchar" MaxLength="200" />
+    <Property Name="Cuit" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdTipoDocumentoSAP" Type="int" />
+    <Property Name="IdClientePrincipal" Type="int" />
+    <Property Name="Calle" Type="nvarchar" MaxLength="100" />
+    <Property Name="Numero" Type="nvarchar" MaxLength="10" />
+    <Property Name="Dto" Type="nvarchar" MaxLength="10" />
+    <Property Name="Piso" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cp" Type="nvarchar" MaxLength="50" />
+    <Property Name="Poblacion" Type="nvarchar" MaxLength="50" />
+    <Property Name="Activo" Type="bit" />
+    <Property Name="GrupoComercial" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClaveGrupo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tratamiento" Type="nvarchar" MaxLength="50" />
+    <Property Name="DescripcionGe" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="EsProspecto" Type="bit" />
+    <Property Name="IdSapOrganizacionDeVenta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cosecha">
+    <Key>
+      <PropertyRef Name="IdCosecha" />
+    </Key>
+    <Property Name="IdCosecha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="IdGrupoEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCliente" Type="int" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdSapOrganizacionDeVenta" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdSapSector" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdSapCanalLocal" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdSapCanalExpor" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sap_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdGrupoEmpresa" Type="int" Nullable="false" />
+    <Property Name="IdSapMoneda" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="Especie">
+    <Key>
+      <PropertyRef Name="IdEspecie" />
+    </Key>
+    <Property Name="IdEspecie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="int" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="IdGrupoEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Establecimiento">
+    <Key>
+      <PropertyRef Name="IdEstablecimiento" />
+    </Key>
+    <Property Name="IdEstablecimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="250" />
+    <Property Name="Localidad" Type="int" />
+    <Property Name="Provincia" Type="int" />
+    <Property Name="IDAlmacenSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDCentroSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdInterlocutorDestinatario" Type="int" />
+    <Property Name="RecorridoEstablecimiento" Type="int" />
+    <Property Name="IDCEBE" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDExpedicion" Type="nvarchar" MaxLength="50" />
+    <Property Name="EstablecimientoAfip" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioCreacion" Type="nvarchar" MaxLength="150" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="nvarchar" MaxLength="150" />
+    <Property Name="Activo" Type="bit" />
+    <Property Name="AsociaCartaDePorte" Type="bit" Nullable="false" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grano">
+    <Key>
+      <PropertyRef Name="IdGrano" />
+    </Key>
+    <Property Name="IdGrano" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="IdMaterialSap" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdEspecieAfip" Type="int" />
+    <Property Name="IdCosechaAfip" Type="int" />
+    <Property Name="IdTipoGrano" Type="int" />
+    <Property Name="SujetoALote" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioCreacion" Type="nvarchar" MaxLength="150" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="nvarchar" MaxLength="150" />
+    <Property Name="Activo" Type="bit" />
+    <Property Name="IdGrupoEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GrupoEmpresa">
+    <Key>
+      <PropertyRef Name="IdGrupoEmpresa" />
+    </Key>
+    <Property Name="IdGrupoEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="Activo" Type="bit" />
+    <Property Name="IdPais" Type="int" Nullable="false" />
+    <Property Name="IdApp" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'CartaDePorte.dbo.Localidad' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Localidad">
+          <Property Name="IdProvincia" Type="int" />
+          <Property Name="Codigo" Type="int" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+        </EntityType>-->
+  <EntityType Name="logInterfaz">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Texto" Type="nvarchar" MaxLength="2000" />
+    <Property Name="fecha" Type="datetime" />
+  </EntityType>
+  <EntityType Name="LogOperaciones">
+    <Key>
+      <PropertyRef Name="IdLogOperaciones" />
+    </Key>
+    <Property Name="IdLogOperaciones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tabla" Type="nvarchar" MaxLength="250" />
+    <Property Name="Accion" Type="nvarchar" MaxLength="250" />
+    <Property Name="Id" Type="int" />
+    <Property Name="Fecha" Type="datetime" />
+    <Property Name="Usuario" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LogSap">
+    <Key>
+      <PropertyRef Name="IdLogSap" />
+    </Key>
+    <Property Name="IdLogSap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDoc" Type="varchar" MaxLength="50" />
+    <Property Name="Origen" Type="varchar" MaxLength="50" />
+    <Property Name="NroDocumentoRE" Type="varchar" MaxLength="50" />
+    <Property Name="NroDocumentoSap" Type="varchar" MaxLength="50" />
+    <Property Name="TipoMensaje" Type="varchar" MaxLength="50" />
+    <Property Name="TextoMensaje" Type="varchar" MaxLength="500" />
+    <Property Name="NroEnvio" Type="int" />
+    <Property Name="FechaCreacion" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.logsolicitudes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="logsolicitudes">
+    <Key>
+      <PropertyRef Name="IdSolicitud" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdSolicitud" Type="int" Nullable="false" />
+    <Property Name="IdTipoDeCarta" Type="int" />
+    <Property Name="ObservacionAfip" Type="nvarchar" MaxLength="4000" />
+    <Property Name="NumeroCartaDePorte" Type="nvarchar" MaxLength="20" />
+    <Property Name="Cee" Type="nvarchar" MaxLength="20" />
+    <Property Name="Ctg" Type="nvarchar" MaxLength="20" />
+    <Property Name="FechaDeEmision" Type="datetime" />
+    <Property Name="FechaDeCarga" Type="datetime" />
+    <Property Name="FechaDeVencimiento" Type="datetime" />
+    <Property Name="idProveedorTitularCartaDePorte" Type="int" />
+    <Property Name="IdClienteIntermediario" Type="int" />
+    <Property Name="IdClienteRemitenteComercial" Type="int" />
+    <Property Name="RemitenteComercialComoCanjeador" Type="bit" />
+    <Property Name="IdClienteCorredor" Type="int" />
+    <Property Name="IdClienteEntregador" Type="int" />
+    <Property Name="IdClienteDestinatario" Type="int" />
+    <Property Name="IdClienteDestino" Type="int" />
+    <Property Name="IdProveedorTransportista" Type="int" />
+    <Property Name="IdChofer" Type="int" />
+    <Property Name="IdCosecha" Type="int" />
+    <Property Name="IdEspecie" Type="int" />
+    <Property Name="NumeroContrato" Type="int" />
+    <Property Name="SapContrato" Type="int" />
+    <Property Name="SinContrato" Type="bit" />
+    <Property Name="CargaPesadaDestino" Type="bit" />
+    <Property Name="KilogramosEstimados" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DeclaracionDeCalidad" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdConformeCondicional" Type="int" />
+    <Property Name="PesoBruto" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PesoTara" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PesoNeto" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="4000" />
+    <Property Name="LoteDeMaterial" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdEstablecimientoProcedencia" Type="int" />
+    <Property Name="IdEstablecimientoDestino" Type="int" />
+    <Property Name="PatenteCamion" Type="nvarchar" MaxLength="15" />
+    <Property Name="PatenteAcoplado" Type="nvarchar" MaxLength="15" />
+    <Property Name="KmRecorridos" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="EstadoFlete" Type="int" />
+    <Property Name="CantHoras" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TarifaReferencia" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TarifaReal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="IdClientePagadorDelFlete" Type="int" />
+    <Property Name="EstadoEnSAP" Type="int" />
+    <Property Name="EstadoEnAFIP" Type="int" />
+    <Property Name="IdGrano" Type="int" />
+    <Property Name="CodigoAnulacionAfip" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="FechaAnulacionAfip" Type="datetime" />
+    <Property Name="CodigoRespuestaEnvioSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MensajeRespuestaEnvioSAP" Type="nvarchar" MaxLength="500" />
+    <Property Name="CodigoRespuestaAnulacionSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MensajeRespuestaAnulacionSAP" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdEstablecimientoDestinoCambio" Type="int" />
+    <Property Name="IdClienteDestinatarioCambio" Type="int" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioCreacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdChoferTransportista" Type="int" />
+    <Property Name="MOTIVO" Type="varchar" MaxLength="50" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+    <Property Name="PHumedad" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="POtros" Type="numeric" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="LoteCartasDePorte">
+    <Key>
+      <PropertyRef Name="IdLoteCartasDePorte" />
+    </Key>
+    <Property Name="IdLoteCartasDePorte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Desde" Type="int" />
+    <Property Name="Hasta" Type="int" />
+    <Property Name="Cee" Type="nvarchar" MaxLength="50" />
+    <Property Name="EstablecimientoOrigen" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="FechaVencimiento" Type="datetime" />
+    <Property Name="UsuarioCreacion" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdGrupoEmpresa" Type="int" Nullable="false" />
+    <Property Name="Sucursal" Type="varchar" MaxLength="3" />
+    <Property Name="PuntoEmision" Type="varchar" MaxLength="3" />
+    <Property Name="FechaDesde" Type="datetime" />
+    <Property Name="FechaHasta" Type="datetime" />
+    <Property Name="HabilitacionNum" Type="numeric" Precision="13" Scale="0" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="IdPais" />
+    </Key>
+    <Property Name="IdPais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Proveedor">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sap_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdTipoDocumentoSAP" Type="int" />
+    <Property Name="NumeroDocumento" Type="nvarchar" MaxLength="50" />
+    <Property Name="Calle" Type="nvarchar" MaxLength="200" />
+    <Property Name="Piso" Type="nvarchar" MaxLength="50" />
+    <Property Name="Departamento" Type="nvarchar" MaxLength="50" />
+    <Property Name="Numero" Type="nvarchar" MaxLength="50" />
+    <Property Name="CP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ciudad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pais" Type="nvarchar" MaxLength="50" />
+    <Property Name="Activo" Type="bit" />
+    <Property Name="Domicilio" Type="nvarchar" MaxLength="200" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="EsProspecto" Type="bit" />
+    <Property Name="IdSapOrganizacionDeVenta" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.proveedor_tmp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="proveedor_tmp">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+      <PropertyRef Name="IdSapOrganizacionDeVenta" />
+    </Key>
+    <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sap_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdTipoDocumentoSAP" Type="int" />
+    <Property Name="NumeroDocumento" Type="nvarchar" MaxLength="50" />
+    <Property Name="Calle" Type="nvarchar" MaxLength="200" />
+    <Property Name="Piso" Type="nvarchar" MaxLength="50" />
+    <Property Name="Departamento" Type="nvarchar" MaxLength="50" />
+    <Property Name="Numero" Type="nvarchar" MaxLength="50" />
+    <Property Name="CP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ciudad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pais" Type="nvarchar" MaxLength="50" />
+    <Property Name="Activo" Type="bit" />
+    <Property Name="Domicilio" Type="nvarchar" MaxLength="200" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="EsProspecto" Type="bit" />
+    <Property Name="IdSapOrganizacionDeVenta" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.Provincia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="IdPais" />
+    </Key>
+    <Property Name="Codigo" Type="int" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="IdPais" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.sol2tmp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sol2tmp">
+    <Key>
+      <PropertyRef Name="IdSolicitud" />
+    </Key>
+    <Property Name="IdSolicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTipoDeCarta" Type="int" />
+    <Property Name="ObservacionAfip" Type="nvarchar" MaxLength="4000" />
+    <Property Name="NumeroCartaDePorte" Type="nvarchar" MaxLength="20" />
+    <Property Name="Cee" Type="nvarchar" MaxLength="20" />
+    <Property Name="Ctg" Type="nvarchar" MaxLength="20" />
+    <Property Name="FechaDeEmision" Type="datetime" />
+    <Property Name="FechaDeCarga" Type="datetime" />
+    <Property Name="FechaDeVencimiento" Type="datetime" />
+    <Property Name="idProveedorTitularCartaDePorte" Type="int" />
+    <Property Name="IdClienteIntermediario" Type="int" />
+    <Property Name="IdEmpresaRemitenteComercial" Type="int" />
+    <Property Name="IdClienteCorredor" Type="int" />
+    <Property Name="IdClienteEntregador" Type="int" />
+    <Property Name="IdClienteDestinatario" Type="int" />
+    <Property Name="IdClienteDestino" Type="int" />
+    <Property Name="IdProveedorTransportista" Type="int" />
+    <Property Name="IdChofer" Type="int" />
+    <Property Name="IdCosecha" Type="int" />
+    <Property Name="IdEspecie" Type="int" />
+    <Property Name="NumeroContrato" Type="int" />
+    <Property Name="SapContrato" Type="int" />
+    <Property Name="SinContrato" Type="bit" />
+    <Property Name="CargaPesadaDestino" Type="bit" />
+    <Property Name="KilogramosEstimados" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DeclaracionDeCalidad" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdConformeCondicional" Type="int" />
+    <Property Name="PesoBruto" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PesoTara" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PesoNeto" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="4000" />
+    <Property Name="LoteDeMaterial" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdEstablecimientoProcedencia" Type="int" />
+    <Property Name="IdEstablecimientoDestino" Type="int" />
+    <Property Name="PatenteCamion" Type="nvarchar" MaxLength="15" />
+    <Property Name="PatenteAcoplado" Type="nvarchar" MaxLength="15" />
+    <Property Name="KmRecorridos" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="EstadoFlete" Type="int" />
+    <Property Name="CantHoras" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TarifaReferencia" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TarifaReal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="IdClientePagadorDelFlete" Type="int" />
+    <Property Name="EstadoEnSAP" Type="int" />
+    <Property Name="EstadoEnAFIP" Type="int" />
+    <Property Name="IdGrano" Type="int" />
+    <Property Name="CodigoAnulacionAfip" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="FechaAnulacionAfip" Type="datetime" />
+    <Property Name="CodigoRespuestaEnvioSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MensajeRespuestaEnvioSAP" Type="nvarchar" MaxLength="500" />
+    <Property Name="CodigoRespuestaAnulacionSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MensajeRespuestaAnulacionSAP" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdEstablecimientoDestinoCambio" Type="int" />
+    <Property Name="IdClienteDestinatarioCambio" Type="int" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioCreacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Solicitudes">
+    <Key>
+      <PropertyRef Name="IdSolicitud" />
+    </Key>
+    <Property Name="IdSolicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTipoDeCarta" Type="int" />
+    <Property Name="ObservacionAfip" Type="nvarchar" MaxLength="4000" />
+    <Property Name="NumeroCartaDePorte" Type="nvarchar" MaxLength="20" />
+    <Property Name="Cee" Type="nvarchar" MaxLength="20" />
+    <Property Name="Ctg" Type="nvarchar" MaxLength="20" />
+    <Property Name="FechaDeEmision" Type="datetime" />
+    <Property Name="FechaDeCarga" Type="datetime" />
+    <Property Name="FechaDeVencimiento" Type="datetime" />
+    <Property Name="idProveedorTitularCartaDePorte" Type="int" />
+    <Property Name="IdClienteIntermediario" Type="int" />
+    <Property Name="IdClienteRemitenteComercial" Type="int" />
+    <Property Name="RemitenteComercialComoCanjeador" Type="bit" />
+    <Property Name="IdClienteCorredor" Type="int" />
+    <Property Name="IdClienteEntregador" Type="int" />
+    <Property Name="IdClienteDestinatario" Type="int" />
+    <Property Name="IdClienteDestino" Type="int" />
+    <Property Name="IdProveedorTransportista" Type="int" />
+    <Property Name="IdChofer" Type="int" />
+    <Property Name="IdCosecha" Type="int" />
+    <Property Name="IdEspecie" Type="int" />
+    <Property Name="NumeroContrato" Type="int" />
+    <Property Name="SapContrato" Type="int" />
+    <Property Name="SinContrato" Type="bit" />
+    <Property Name="CargaPesadaDestino" Type="bit" />
+    <Property Name="KilogramosEstimados" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DeclaracionDeCalidad" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdConformeCondicional" Type="int" />
+    <Property Name="PesoBruto" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PesoTara" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PesoNeto" Type="numeric" Precision="19" Scale="0" StoreGeneratedPattern="Computed" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="4000" />
+    <Property Name="LoteDeMaterial" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdEstablecimientoProcedencia" Type="int" />
+    <Property Name="IdEstablecimientoDestino" Type="int" />
+    <Property Name="PatenteCamion" Type="nvarchar" MaxLength="15" />
+    <Property Name="PatenteAcoplado" Type="nvarchar" MaxLength="15" />
+    <Property Name="KmRecorridos" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="EstadoFlete" Type="int" />
+    <Property Name="CantHoras" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TarifaReferencia" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TarifaReal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="IdClientePagadorDelFlete" Type="int" />
+    <Property Name="EstadoEnSAP" Type="int" />
+    <Property Name="EstadoEnAFIP" Type="int" />
+    <Property Name="IdGrano" Type="int" />
+    <Property Name="CodigoAnulacionAfip" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="FechaAnulacionAfip" Type="datetime" />
+    <Property Name="CodigoRespuestaEnvioSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MensajeRespuestaEnvioSAP" Type="nvarchar" MaxLength="500" />
+    <Property Name="CodigoRespuestaAnulacionSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MensajeRespuestaAnulacionSAP" Type="nvarchar" MaxLength="500" />
+    <Property Name="IdEstablecimientoDestinoCambio" Type="int" />
+    <Property Name="IdClienteDestinatarioCambio" Type="int" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioCreacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdChoferTransportista" Type="int" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+    <Property Name="PHumedad" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="POtros" Type="numeric" Precision="5" Scale="2" />
+  </EntityType>
+  <EntityType Name="SolicitudesRecibidas">
+    <Key>
+      <PropertyRef Name="IdSolicitudRecibida" />
+    </Key>
+    <Property Name="IdSolicitudRecibida" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTipoDeCarta" Type="int" />
+    <Property Name="NumeroCartaDePorte" Type="nvarchar" MaxLength="20" />
+    <Property Name="Cee" Type="nvarchar" MaxLength="20" />
+    <Property Name="Ctg" Type="nvarchar" MaxLength="20" />
+    <Property Name="FechaDeEmision" Type="datetime" />
+    <Property Name="FechaDeCarga" Type="datetime" />
+    <Property Name="FechaDeVencimiento" Type="datetime" />
+    <Property Name="idProveedorTitularCartaDePorte" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdClienteIntermediario" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdClienteRemitenteComercial" Type="nvarchar" MaxLength="20" />
+    <Property Name="RemitenteComercialComoCanjeador" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdClienteCorredor" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdClienteEntregador" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdClienteDestinatario" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdClienteDestino" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdProveedorTransportista" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdChofer" Type="nvarchar" MaxLength="20" />
+    <Property Name="IdCosecha" Type="int" />
+    <Property Name="IdEspecie" Type="int" />
+    <Property Name="NumeroContrato" Type="int" />
+    <Property Name="SapContrato" Type="int" />
+    <Property Name="SinContrato" Type="bit" />
+    <Property Name="CargaPesadaDestino" Type="bit" />
+    <Property Name="KilogramosEstimados" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DeclaracionDeCalidad" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdConformeCondicional" Type="int" />
+    <Property Name="PesoBruto" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PesoTara" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PesoNeto" Type="numeric" Precision="19" Scale="0" StoreGeneratedPattern="Computed" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="4000" />
+    <Property Name="LoteDeMaterial" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodigoEstablecimientoProcedencia" Type="nvarchar" MaxLength="15" />
+    <Property Name="IdLocalidadEstablecimientoProcedencia" Type="int" />
+    <Property Name="IdEstablecimientoDestino" Type="int" />
+    <Property Name="PatenteCamion" Type="nvarchar" MaxLength="15" />
+    <Property Name="PatenteAcoplado" Type="nvarchar" MaxLength="15" />
+    <Property Name="KmRecorridos" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="EstadoFlete" Type="int" />
+    <Property Name="CantHoras" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TarifaReferencia" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TarifaReal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="IdClientePagadorDelFlete" Type="int" />
+    <Property Name="EstadoEnSAP" Type="int" />
+    <Property Name="EstadoEnAFIP" Type="int" />
+    <Property Name="IdGrano" Type="int" />
+    <Property Name="CodigoAnulacionAfip" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="FechaAnulacionAfip" Type="datetime" />
+    <Property Name="CodigoRespuestaEnvioSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MensajeRespuestaEnvioSAP" Type="nvarchar" MaxLength="500" />
+    <Property Name="CodigoRespuestaAnulacionSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="MensajeRespuestaAnulacionSAP" Type="nvarchar" MaxLength="500" />
+    <Property Name="CodigoEstablecimientoDestinoCambio" Type="nvarchar" MaxLength="15" />
+    <Property Name="CuitEstablecimientoDestinoCambio" Type="nvarchar" MaxLength="40" />
+    <Property Name="IdLocalidadEstablecimientoDestinoCambio" Type="int" />
+    <Property Name="FechaDeDescarga" Type="datetime" />
+    <Property Name="FechaDeArribo" Type="datetime" />
+    <Property Name="PesoNetoDescarga" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioCreacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdChoferTransportista" Type="int" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TipoDeCarta">
+    <Key>
+      <PropertyRef Name="IdTipoDeCarta" />
+    </Key>
+    <Property Name="IdTipoDeCarta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="TipoDocumentoSAP">
+    <Key>
+      <PropertyRef Name="IdTipoDocumentoSAP" />
+    </Key>
+    <Property Name="IdTipoDocumentoSAP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SAP_Id" Type="varchar" MaxLength="2" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TipoEspecie">
+    <Key>
+      <PropertyRef Name="IdTipoEspecie" />
+    </Key>
+    <Property Name="IdTipoEspecie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TipoGrano">
+    <Key>
+      <PropertyRef Name="IdTipoGrano" />
+    </Key>
+    <Property Name="IdTipoGrano" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'CartaDePorte.dbo.tmpAcreedor' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tmpAcreedor">
+          <Property Name="IdProveedor" Type="int" />
+          <Property Name="Sap_Id" Type="varchar" MaxLength="100" />
+          <Property Name="NumeroDocumento" Type="varchar" MaxLength="100" />
+          <Property Name="IdTipoDocumentoSAP" Type="int" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vChoferes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vChoferes">
+    <Key>
+      <PropertyRef Name="IdChofer" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdChofer" Type="int" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="301" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vClienteCorredor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vClienteCorredor">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vClienteDestinatario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vClienteDestinatario">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vClienteDestinatarioCambio' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vClienteDestinatarioCambio">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vClienteDestino' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vClienteDestino">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vClienteEntregador' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vClienteEntregador">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vClienteIntermediario' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vClienteIntermediario">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vClientePagadorDelFlete' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vClientePagadorDelFlete">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vClienteRemitenteComercial' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vClienteRemitenteComercial">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vClientes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vClientes">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vCosecha' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vCosecha">
+    <Key>
+      <PropertyRef Name="IdCosecha" />
+      <PropertyRef Name="IdGrupoEmpresa" />
+    </Key>
+    <Property Name="IdCosecha" Type="int" Nullable="false" />
+    <Property Name="Codigo" Type="int" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="IdGrupoEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vEspecie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vEspecie">
+    <Key>
+      <PropertyRef Name="IdEspecie" />
+      <PropertyRef Name="IdGrupoEmpresa" />
+    </Key>
+    <Property Name="IdEspecie" Type="int" Nullable="false" />
+    <Property Name="Codigo" Type="int" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="IdGrupoEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vEstablecimientoDestino' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vEstablecimientoDestino">
+    <Key>
+      <PropertyRef Name="IdEstablecimiento" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdEstablecimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vEstablecimientoOrigen' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vEstablecimientoOrigen">
+    <Key>
+      <PropertyRef Name="IdEstablecimiento" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdEstablecimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vGranoCosecha' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vGranoCosecha">
+    <Key>
+      <PropertyRef Name="IdGrano" />
+      <PropertyRef Name="IdGrupoEmpresa" />
+    </Key>
+    <Property Name="IdGrano" Type="int" Nullable="false" />
+    <Property Name="Grano" Type="nvarchar" MaxLength="401" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+    <Property Name="IdGrupoEmpresa" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vRemitoParaguay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vRemitoParaguay">
+    <Key>
+      <PropertyRef Name="idsolicitud" />
+      <PropertyRef Name="CteDeVta" />
+      <PropertyRef Name="KG" />
+    </Key>
+    <Property Name="idsolicitud" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+    <Property Name="Cee" Type="nvarchar" MaxLength="20" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="FechaVencimiento" Type="datetime" />
+    <Property Name="NumeroRemision" Type="varchar" MaxLength="65" />
+    <Property Name="FechaDeEmision" Type="datetime" />
+    <Property Name="RazonSocial" Type="nvarchar" MaxLength="200" />
+    <Property Name="CUIT" Type="nvarchar" MaxLength="20" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="213" />
+    <Property Name="MotivoTraslado" Type="nvarchar" MaxLength="200" />
+    <Property Name="CteDeVta" Type="varchar" MaxLength="34" Nullable="false" />
+    <Property Name="EPDireccion" Type="nvarchar" MaxLength="250" />
+    <Property Name="LocPartida" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProvPartida" Type="nvarchar" MaxLength="250" />
+    <Property Name="EDDireccion" Type="nvarchar" MaxLength="250" />
+    <Property Name="LocLlegada" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProvLlegada" Type="nvarchar" MaxLength="250" />
+    <Property Name="KmRecorridos" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TranspRazonSocial" Type="nvarchar" MaxLength="301" />
+    <Property Name="TransportistaCUIT" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarcaVehiculo" Type="nvarchar" MaxLength="100" />
+    <Property Name="PatenteCamion" Type="nvarchar" MaxLength="15" />
+    <Property Name="PatenteAcoplado" Type="nvarchar" MaxLength="15" />
+    <Property Name="ChoferRazonSocial" Type="nvarchar" MaxLength="301" />
+    <Property Name="ChoferCUIT" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChoferDomicilio" Type="nvarchar" MaxLength="100" />
+    <Property Name="Cantidad" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="KG" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="DescripcionDetallada" Type="nvarchar" MaxLength="250" />
+    <Property Name="HabilitacionNum" Type="numeric" Precision="13" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CartaDePorte.dbo.vReporteCDP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vReporteCDP">
+    <Key>
+      <PropertyRef Name="IdSolicitud" />
+      <PropertyRef Name="IdEmpresa" />
+    </Key>
+    <Property Name="IdSolicitud" Type="int" Nullable="false" />
+    <Property Name="TipoCarta" Type="nvarchar" MaxLength="200" />
+    <Property Name="ObservacionAfip" Type="nvarchar" MaxLength="4000" />
+    <Property Name="NumeroCartaDePorte" Type="nvarchar" MaxLength="20" />
+    <Property Name="Cee" Type="nvarchar" MaxLength="20" />
+    <Property Name="Ctg" Type="nvarchar" MaxLength="20" />
+    <Property Name="FechaDeEmision" Type="datetime" />
+    <Property Name="FechaDeCarga" Type="datetime" />
+    <Property Name="FechaDeVencimiento" Type="datetime" />
+    <Property Name="TitularCDP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Intermediario" Type="nvarchar" MaxLength="200" />
+    <Property Name="CteRemitenteComecial" Type="nvarchar" MaxLength="200" />
+    <Property Name="EsCanjeador" Type="bit" />
+    <Property Name="CteCorredor" Type="nvarchar" MaxLength="200" />
+    <Property Name="Entregador" Type="nvarchar" MaxLength="200" />
+    <Property Name="Destinatario" Type="nvarchar" MaxLength="200" />
+    <Property Name="Destino" Type="nvarchar" MaxLength="200" />
+    <Property Name="Transportista" Type="nvarchar" MaxLength="50" />
+    <Property Name="CTransportista" Type="nvarchar" MaxLength="301" />
+    <Property Name="Chofer" Type="nvarchar" MaxLength="301" />
+    <Property Name="Grano" Type="nvarchar" MaxLength="250" />
+    <Property Name="NumeroContrato" Type="int" />
+    <Property Name="CargaPesadaDestino" Type="bit" />
+    <Property Name="KilogramosEstimados" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ConformeCondicional" Type="int" />
+    <Property Name="PesoBruto" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PesoTara" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="PesoNeto" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="4000" />
+    <Property Name="EstProcedencia" Type="nvarchar" MaxLength="250" />
+    <Property Name="EstDestino" Type="nvarchar" MaxLength="250" />
+    <Property Name="PatenteCamion" Type="nvarchar" MaxLength="50" />
+    <Property Name="PatenteAcoplado" Type="nvarchar" MaxLength="50" />
+    <Property Name="KmRecorridos" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="EstadoFlete" Type="int" />
+    <Property Name="CantHoras" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TarifaReferencia" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="TarifaReal" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="CtePagador" Type="nvarchar" MaxLength="200" />
+    <Property Name="EstadoEnAFIP" Type="int" />
+    <Property Name="EstadoEnSAP" Type="int" />
+    <Property Name="EstDestinoCambio" Type="nvarchar" MaxLength="250" />
+    <Property Name="CteDestinatarioCambio" Type="nvarchar" MaxLength="200" />
+    <Property Name="CodigoAnulacionAfip" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="FechaAnulacionAfip" Type="datetime" />
+    <Property Name="CodigoRespuestaEnvioSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodigoRespuestaAnulacionSAP" Type="nvarchar" MaxLength="50" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="UsuarioCreacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="UsuarioModificacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdEmpresa" Type="int" Nullable="false" />
+    <Property Name="IdGrano" Type="int" />
+    <Property Name="idProveedorTitularCartaDePorte" Type="int" />
+    <Property Name="IdClienteIntermediario" Type="int" />
+    <Property Name="IdClienteRemitenteComercial" Type="int" />
+    <Property Name="IdClienteCorredor" Type="int" />
+    <Property Name="IdClienteEntregador" Type="int" />
+    <Property Name="IdClienteDestinatario" Type="int" />
+    <Property Name="IdProveedorTransportista" Type="int" />
+    <Property Name="IdChofer" Type="int" />
+    <Property Name="IdEstablecimientoProcedencia" Type="int" />
+    <Property Name="IdEstablecimientoDestino" Type="int" />
+    <Property Name="PHumedad" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="POtros" Type="numeric" Precision="5" Scale="2" />
+    <Property Name="IdCosecha" Type="int" />
+    <Property Name="CosechaDescripcion" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_Solicitudes_TipoDeCarta">
+    <End Role="TipoDeCarta" Type="Self.TipoDeCarta" Multiplicity="0..1" />
+    <End Role="Solicitudes" Type="Self.Solicitudes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDeCarta">
+        <PropertyRef Name="IdTipoDeCarta" />
+      </Principal>
+      <Dependent Role="Solicitudes">
+        <PropertyRef Name="IdTipoDeCarta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AnularReservaCartaDePorte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nroCartaDePorte" Type="varchar" Mode="In" />
+    <Parameter Name="UsuarioReserva" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CancelarReservaCartaDePorte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="nroCartaDePorte" Type="varchar" Mode="In" />
+    <Parameter Name="UsuarioReserva" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CantidadCartasDePorteDisponibles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteC1116ADetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Eliminar1116A" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="EliminarCartasDePorte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdLoteCartasDePorte" Type="int" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="EliminarCartasDePorteDisponibles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdLoteCartasDePorte" Type="int" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="EliminarChofer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdChofer" Type="int" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="EliminarEstablecimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstablecimiento" Type="int" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="EliminarGrano" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGrano" Type="int" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GetAfipAuth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetC1116A" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetC1116AByCertificado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetC1116AByFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetC1116ADetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCambiosEstados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cdp" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetCartaDePorteDisponible" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idEstablecimiento" Type="int" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCartasDePorte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetChofer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetChoferByCuit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Cuit" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetChoferFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetChoferUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetClienteByCuit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetClienteByOrganizacionVenta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSapOrganizacionDeVenta" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetClienteBySAPID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdOrganizacionDeVenta" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetClienteCorredorUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetClienteDestinatarioUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetClienteDestinoUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetClienteEntregadorUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetClienteFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetClienteIntermediarioUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetClientePagadorDelFleteUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetClienteRemitenteComercialUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCosecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCosechaByCodigo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetCuitAutoComplete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="campo" Type="nvarchar" Mode="In" />
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetDisponiblePorLote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLote" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEmpresaAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEmpresaByGrupoEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEmpresaByIDCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEmpresaBySap_Id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetEmpresaFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetEmpresaRemitenteComercialUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetEmpresaTitularCartaDePorteUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetEspecie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEstablecimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEstablecimientoFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEstablecimientoOrigenDestino" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Origen" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetGrano" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetGranoFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetGrupoEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetGrupoEmpresa_Empresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="GetGrupoEmpresa&amp;Empresa">
+    <Parameter Name="condicion" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetGrupoEmpresaByDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="getIdClienteProspecto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getIdSapProveedorProspecto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetLocalidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetLocalidadByFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="filtro" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetLocalidadByIDProvincia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetLocalidadByText" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="filtro" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetLogSap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cartaDePorte" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetLogSapUltimoNroEnvio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cartaDePorte" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetLoteCartasDePorte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetLoteCartasDePorteFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="loteDesde" Type="int" Mode="In" />
+    <Parameter Name="tieneDisponible" Type="int" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetLoteCartasDePorteReporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaDesde" Type="datetime" Mode="In" />
+    <Parameter Name="FechaHasta" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GetMisReservas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UsuarioReserva" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetOneByCodigo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProveedorByCuitOrgSAPID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CUIT" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetProveedorByNumeroDocumento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProveedorBySAPID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdOrganizacionDeVenta" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetProveedorFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProveedorInterfaz" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProveedorTitularCartaDePorteUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProveedorTransportistaUsadas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetProvincia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdPais" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudAnulacionSAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudByCDP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NumeroCartaDePorte" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudByCTG" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NumeroCTG" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudByEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudByEmpresaCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudEnvioSAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="estadoAFIP" Type="nvarchar" Mode="In" />
+    <Parameter Name="estadoSAP" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudFiltroConfirmacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudMeFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="estadoAFIP" Type="nvarchar" Mode="In" />
+    <Parameter Name="estadoSAP" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudRecibida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudRecibidaFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="texto" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudReporte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaDesde" Type="datetime" Mode="In" />
+    <Parameter Name="FechaHasta" Type="datetime" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudReporte1116A" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaDesde" Type="datetime" Mode="In" />
+    <Parameter Name="FechaHasta" Type="datetime" Mode="In" />
+    <Parameter Name="ModoFecha" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudReporteEmitidas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaDesde" Type="datetime" Mode="In" />
+    <Parameter Name="FechaHasta" Type="datetime" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudReporteGrafico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaDesde" Type="datetime" Mode="In" />
+    <Parameter Name="FechaHasta" Type="datetime" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudReporteGraficoNotIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaDesde" Type="datetime" Mode="In" />
+    <Parameter Name="FechaHasta" Type="datetime" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudReporteRecibidas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FechaDesde" Type="datetime" Mode="In" />
+    <Parameter Name="FechaHasta" Type="datetime" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudTop" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Top" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSolicitudTopConfirmacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSox1116A" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSox1116AByIdSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTipoDeCarta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTipoDocumentoSAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTipoGrano" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUtilizadoPorLote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idLote" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarAfipAuth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Token" Type="nvarchar" Mode="In" />
+    <Parameter Name="Sign" Type="nvarchar" Mode="In" />
+    <Parameter Name="GenerationTime" Type="datetime" Mode="In" />
+    <Parameter Name="ExpirationTime" Type="datetime" Mode="In" />
+    <Parameter Name="Service" Type="nvarchar" Mode="In" />
+    <Parameter Name="UniqueID" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GuardarC1116A" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Idc1116a" Type="int" Mode="In" />
+    <Parameter Name="NroCertificadoc1116a" Type="nvarchar" Mode="In" />
+    <Parameter Name="CodigoEstablecimiento" Type="int" Mode="In" />
+    <Parameter Name="CuitProveedor" Type="nvarchar" Mode="In" />
+    <Parameter Name="RazonSocialProveedor" Type="nvarchar" Mode="In" />
+    <Parameter Name="TipoDomicilio" Type="int" Mode="In" />
+    <Parameter Name="CalleRutaProductor" Type="nvarchar" Mode="In" />
+    <Parameter Name="NroKmProductor" Type="int" Mode="In" />
+    <Parameter Name="PisoProductor" Type="nvarchar" Mode="In" />
+    <Parameter Name="OficinaDtoProductor" Type="nvarchar" Mode="In" />
+    <Parameter Name="CodigoLocalidadProductor" Type="int" Mode="In" />
+    <Parameter Name="CodigoPartidoProductor" Type="int" Mode="In" />
+    <Parameter Name="CodigoPostalProductor" Type="nvarchar" Mode="In" />
+    <Parameter Name="CodigoEspecie" Type="int" Mode="In" />
+    <Parameter Name="Cosecha" Type="nvarchar" Mode="In" />
+    <Parameter Name="AlmacenajeDiasLibres" Type="int" Mode="In" />
+    <Parameter Name="TarifaAlmacenaje" Type="decimal" Mode="In" />
+    <Parameter Name="GastoGenerales" Type="decimal" Mode="In" />
+    <Parameter Name="Zarandeo" Type="decimal" Mode="In" />
+    <Parameter Name="SecadoDe" Type="decimal" Mode="In" />
+    <Parameter Name="SecadoA" Type="decimal" Mode="In" />
+    <Parameter Name="TarifaSecado" Type="decimal" Mode="In" />
+    <Parameter Name="PuntoExceso" Type="decimal" Mode="In" />
+    <Parameter Name="TarifaOtros" Type="decimal" Mode="In" />
+    <Parameter Name="CodigoPartidoOrigen" Type="int" Mode="In" />
+    <Parameter Name="CodigoPartidoEntrega" Type="int" Mode="In" />
+    <Parameter Name="NumeroAnalisis" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumeroBoletin" Type="nvarchar" Mode="In" />
+    <Parameter Name="FechaAnalisis" Type="datetime" Mode="In" />
+    <Parameter Name="Grado" Type="nvarchar" Mode="In" />
+    <Parameter Name="Factor" Type="decimal" Mode="In" />
+    <Parameter Name="ContenidoProteico" Type="decimal" Mode="In" />
+    <Parameter Name="CuitLaboratorio" Type="nvarchar" Mode="In" />
+    <Parameter Name="NombreLaboratorio" Type="nvarchar" Mode="In" />
+    <Parameter Name="PesoBruto" Type="decimal" Mode="In" />
+    <Parameter Name="MermaVolatil" Type="decimal" Mode="In" />
+    <Parameter Name="MermaZarandeo" Type="decimal" Mode="In" />
+    <Parameter Name="MermaSecado" Type="decimal" Mode="In" />
+    <Parameter Name="PesoNeto" Type="decimal" Mode="In" />
+    <Parameter Name="FechaCierre" Type="datetime" Mode="In" />
+    <Parameter Name="ImporteIVAServicios" Type="decimal" Mode="In" />
+    <Parameter Name="TotalServicios" Type="decimal" Mode="In" />
+    <Parameter Name="NumeroCAC" Type="nvarchar" Mode="In" />
+    <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GuardarC1116ADetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Idc1116aDetalle" Type="int" Mode="In" />
+    <Parameter Name="Idc1116a" Type="int" Mode="In" />
+    <Parameter Name="NumeroCartaDePorte" Type="int" Mode="In" />
+    <Parameter Name="NumeroCertificadoAsociado" Type="int" Mode="In" />
+    <Parameter Name="KgBrutos" Type="decimal" Mode="In" />
+    <Parameter Name="FechaRemesa" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="GuardarCartasDePorte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Desde" Type="varchar" Mode="In" />
+    <Parameter Name="Hasta" Type="varchar" Mode="In" />
+    <Parameter Name="NroCEE" Type="varchar" Mode="In" />
+    <Parameter Name="FechaVencimiento" Type="datetime" Mode="In" />
+    <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
+    <Parameter Name="EstablecimientoOrigen" Type="varchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+    <Parameter Name="Sucursal" Type="varchar" Mode="In" />
+    <Parameter Name="PuntoEmision" Type="varchar" Mode="In" />
+    <Parameter Name="FechaDesde" Type="datetime" Mode="In" />
+    <Parameter Name="HabilitacionNum" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="GuardarChofer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdChofer" Type="int" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Apellido" Type="varchar" Mode="In" />
+    <Parameter Name="Cuit" Type="varchar" Mode="In" />
+    <Parameter Name="Camion" Type="nvarchar" Mode="In" />
+    <Parameter Name="Acoplado" Type="nvarchar" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+    <Parameter Name="EsChoferTransportista" Type="bit" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+    <Parameter Name="Domicilio" Type="varchar" Mode="In" />
+    <Parameter Name="Marca" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GuardarCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCliente" Type="int" Mode="In" />
+    <Parameter Name="RazonSocial" Type="varchar" Mode="In" />
+    <Parameter Name="NombreFantasia" Type="varchar" Mode="In" />
+    <Parameter Name="Cuit" Type="varchar" Mode="In" />
+    <Parameter Name="IDTipoDocumentoSAP" Type="int" Mode="In" />
+    <Parameter Name="IdClientePrincipal" Type="int" Mode="In" />
+    <Parameter Name="Calle" Type="varchar" Mode="In" />
+    <Parameter Name="Numero" Type="varchar" Mode="In" />
+    <Parameter Name="Dto" Type="varchar" Mode="In" />
+    <Parameter Name="Piso" Type="varchar" Mode="In" />
+    <Parameter Name="Cp" Type="varchar" Mode="In" />
+    <Parameter Name="Poblacion" Type="varchar" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="GrupoComercial" Type="varchar" Mode="In" />
+    <Parameter Name="ClaveGrupo" Type="varchar" Mode="In" />
+    <Parameter Name="Tratamiento" Type="varchar" Mode="In" />
+    <Parameter Name="DescripcionGe" Type="varchar" Mode="In" />
+    <Parameter Name="EsProspecto" Type="bit" Mode="In" />
+    <Parameter Name="IdSapOrganizacionDeVenta" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarCosecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCosecha" Type="int" Mode="In" />
+    <Parameter Name="Codigo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="IdCliente" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdSapOrganizacionDeVenta" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdSapSector" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdSapCanalLocal" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdSapCanalExpor" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GuardarEmpresaABM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="IdCliente" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdSapOrganizacionDeVenta" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdSapSector" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdSapCanalLocal" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdSapCanalExpor" Type="nvarchar" Mode="In" />
+    <Parameter Name="Sap_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+    <Parameter Name="IdSapMoneda" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GuardarEspecie" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEspecie" Type="int" Mode="In" />
+    <Parameter Name="Codigo" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarEstablecimiento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstablecimiento" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="Direccion" Type="varchar" Mode="In" />
+    <Parameter Name="Localidad" Type="int" Mode="In" />
+    <Parameter Name="Provincia" Type="int" Mode="In" />
+    <Parameter Name="IDAlmacenSAP" Type="varchar" Mode="In" />
+    <Parameter Name="IDCentroSAP" Type="varchar" Mode="In" />
+    <Parameter Name="IdInterlocutorDestinatario" Type="int" Mode="In" />
+    <Parameter Name="RecorridoEstablecimiento" Type="int" Mode="In" />
+    <Parameter Name="cebe" Type="nvarchar" Mode="In" />
+    <Parameter Name="expedicion" Type="nvarchar" Mode="In" />
+    <Parameter Name="establecimientoAfip" Type="nvarchar" Mode="In" />
+    <Parameter Name="asociaCartaDePorte" Type="bit" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarEstadoCartaDePorte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="estado" Type="int" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarGrano" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGrano" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="IdMaterialSap" Type="varchar" Mode="In" />
+    <Parameter Name="EspecieAfip" Type="int" Mode="In" />
+    <Parameter Name="CosechaAfip" Type="int" Mode="In" />
+    <Parameter Name="IdTipoGrano" Type="int" Mode="In" />
+    <Parameter Name="SujetoALote" Type="varchar" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarGrupoEmpresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+    <Parameter Name="Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="IdPais" Type="int" Mode="In" />
+    <Parameter Name="IdApp" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarLogSap" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDoc" Type="varchar" Mode="In" />
+    <Parameter Name="Origen" Type="varchar" Mode="In" />
+    <Parameter Name="NroDocumentoRE" Type="varchar" Mode="In" />
+    <Parameter Name="NroDocumentoSap" Type="varchar" Mode="In" />
+    <Parameter Name="TipoMensaje" Type="varchar" Mode="In" />
+    <Parameter Name="TextoMensaje" Type="varchar" Mode="In" />
+    <Parameter Name="NroEnvio" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarProveedor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdProveedor" Type="int" Mode="In" />
+    <Parameter Name="Sap_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdTipoDocumentoSAP" Type="int" Mode="In" />
+    <Parameter Name="NumeroDocumento" Type="nvarchar" Mode="In" />
+    <Parameter Name="Calle" Type="nvarchar" Mode="In" />
+    <Parameter Name="Piso" Type="nvarchar" Mode="In" />
+    <Parameter Name="Departamento" Type="nvarchar" Mode="In" />
+    <Parameter Name="Numero" Type="nvarchar" Mode="In" />
+    <Parameter Name="CP" Type="nvarchar" Mode="In" />
+    <Parameter Name="Ciudad" Type="nvarchar" Mode="In" />
+    <Parameter Name="Pais" Type="nvarchar" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="EsProspecto" Type="bit" Mode="In" />
+    <Parameter Name="IdSapOrganizacionDeVenta" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarSolicitud" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSolicitud" Type="int" Mode="In" />
+    <Parameter Name="IdTipoDeCarta" Type="int" Mode="In" />
+    <Parameter Name="ObservacionAfip" Type="nvarchar" Mode="In" />
+    <Parameter Name="NumeroCartaDePorte" Type="nvarchar" Mode="In" />
+    <Parameter Name="Cee" Type="nvarchar" Mode="In" />
+    <Parameter Name="Ctg" Type="nvarchar" Mode="In" />
+    <Parameter Name="FechaDeEmision" Type="datetime" Mode="In" />
+    <Parameter Name="FechaDeCarga" Type="datetime" Mode="In" />
+    <Parameter Name="FechaDeVencimiento" Type="datetime" Mode="In" />
+    <Parameter Name="IdProveedorTitularCartaDePorte" Type="int" Mode="In" />
+    <Parameter Name="IdClienteIntermediario" Type="int" Mode="In" />
+    <Parameter Name="IdClienteRemitenteComercial" Type="int" Mode="In" />
+    <Parameter Name="RemitenteComercialComoCanjeador" Type="bit" Mode="In" />
+    <Parameter Name="IdClienteCorredor" Type="int" Mode="In" />
+    <Parameter Name="IdClienteEntregador" Type="int" Mode="In" />
+    <Parameter Name="IdClienteDestinatario" Type="int" Mode="In" />
+    <Parameter Name="IdClienteDestino" Type="int" Mode="In" />
+    <Parameter Name="IdProveedorTransportista" Type="int" Mode="In" />
+    <Parameter Name="IdChoferTransportista" Type="int" Mode="In" />
+    <Parameter Name="IdChofer" Type="int" Mode="In" />
+    <Parameter Name="IdCosecha" Type="int" Mode="In" />
+    <Parameter Name="IdEspecie" Type="int" Mode="In" />
+    <Parameter Name="NumeroContrato" Type="int" Mode="In" />
+    <Parameter Name="SapContrato" Type="int" Mode="In" />
+    <Parameter Name="SinContrato" Type="bit" Mode="In" />
+    <Parameter Name="CargaPesadaDestino" Type="bit" Mode="In" />
+    <Parameter Name="KilogramosEstimados" Type="decimal" Mode="In" />
+    <Parameter Name="DeclaracionDeCalidad" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdConformeCondicional" Type="int" Mode="In" />
+    <Parameter Name="PesoBruto" Type="decimal" Mode="In" />
+    <Parameter Name="PesoTara" Type="decimal" Mode="In" />
+    <Parameter Name="Observaciones" Type="nvarchar" Mode="In" />
+    <Parameter Name="LoteDeMaterial" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEstablecimientoProcedencia" Type="int" Mode="In" />
+    <Parameter Name="IdEstablecimientoDestino" Type="int" Mode="In" />
+    <Parameter Name="PatenteCamion" Type="nvarchar" Mode="In" />
+    <Parameter Name="PatenteAcoplado" Type="nvarchar" Mode="In" />
+    <Parameter Name="KmRecorridos" Type="decimal" Mode="In" />
+    <Parameter Name="EstadoFlete" Type="int" Mode="In" />
+    <Parameter Name="CantHoras" Type="decimal" Mode="In" />
+    <Parameter Name="TarifaReferencia" Type="decimal" Mode="In" />
+    <Parameter Name="TarifaReal" Type="decimal" Mode="In" />
+    <Parameter Name="IdClientePagadorDelFlete" Type="int" Mode="In" />
+    <Parameter Name="EstadoEnSAP" Type="int" Mode="In" />
+    <Parameter Name="EstadoEnAFIP" Type="int" Mode="In" />
+    <Parameter Name="IdGrano" Type="int" Mode="In" />
+    <Parameter Name="CodigoAnulacionAfip" Type="decimal" Mode="In" />
+    <Parameter Name="FechaAnulacionAfip" Type="datetime" Mode="In" />
+    <Parameter Name="CodigoRespuestaEnvioSAP" Type="nvarchar" Mode="In" />
+    <Parameter Name="CodigoRespuestaAnulacionSAP" Type="nvarchar" Mode="In" />
+    <Parameter Name="MensajeRespuestaEnvioSAP" Type="nvarchar" Mode="In" />
+    <Parameter Name="MensajeRespuestaAnulacionSAP" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEstablecimientoDestinoCambio" Type="int" Mode="In" />
+    <Parameter Name="IdClienteDestinatarioCambio" Type="int" Mode="In" />
+    <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+    <Parameter Name="PHumedad" Type="numeric" Mode="In" />
+    <Parameter Name="POtros" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="GuardarSolicitudRecibida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdSolicitudRecibida" Type="int" Mode="In" />
+    <Parameter Name="IdTipoDeCarta" Type="int" Mode="In" />
+    <Parameter Name="NumeroCartaDePorte" Type="nvarchar" Mode="In" />
+    <Parameter Name="Cee" Type="nvarchar" Mode="In" />
+    <Parameter Name="Ctg" Type="nvarchar" Mode="In" />
+    <Parameter Name="FechaDeEmision" Type="datetime" Mode="In" />
+    <Parameter Name="idProveedorTitularCartaDePorte" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdClienteIntermediario" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdClienteRemitenteComercial" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdClienteCorredor" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdClienteEntregador" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdClienteDestinatario" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdClienteDestino" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdProveedorTransportista" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdChofer" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdCosecha" Type="int" Mode="In" />
+    <Parameter Name="IdEspecie" Type="int" Mode="In" />
+    <Parameter Name="NumeroContrato" Type="int" Mode="In" />
+    <Parameter Name="CargaPesadaDestino" Type="bit" Mode="In" />
+    <Parameter Name="KilogramosEstimados" Type="decimal" Mode="In" />
+    <Parameter Name="IdConformeCondicional" Type="int" Mode="In" />
+    <Parameter Name="PesoBruto" Type="decimal" Mode="In" />
+    <Parameter Name="PesoTara" Type="decimal" Mode="In" />
+    <Parameter Name="Observaciones" Type="nvarchar" Mode="In" />
+    <Parameter Name="CodigoEstablecimientoProcedencia" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdLocalidadEstablecimientoProcedencia" Type="int" Mode="In" />
+    <Parameter Name="IdEstablecimientoDestino" Type="nvarchar" Mode="In" />
+    <Parameter Name="PatenteCamion" Type="nvarchar" Mode="In" />
+    <Parameter Name="PatenteAcoplado" Type="nvarchar" Mode="In" />
+    <Parameter Name="KmRecorridos" Type="decimal" Mode="In" />
+    <Parameter Name="EstadoFlete" Type="int" Mode="In" />
+    <Parameter Name="CantHoras" Type="decimal" Mode="In" />
+    <Parameter Name="TarifaReferencia" Type="decimal" Mode="In" />
+    <Parameter Name="TarifaReal" Type="decimal" Mode="In" />
+    <Parameter Name="IdGrano" Type="int" Mode="In" />
+    <Parameter Name="CodigoEstablecimientoDestinoCambio" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdLocalidadEstablecimientoDestinoCambio" Type="int" Mode="In" />
+    <Parameter Name="CuitEstablecimientoDestinoCambio" Type="nvarchar" Mode="In" />
+    <Parameter Name="FechaDeDescarga" Type="datetime" Mode="In" />
+    <Parameter Name="FechaDeArribo" Type="datetime" Mode="In" />
+    <Parameter Name="PesoNetoDescarga" Type="decimal" Mode="In" />
+    <Parameter Name="Usuario" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarSox1116A" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCartaDePorte1116A" Type="int" Mode="In" />
+    <Parameter Name="IdSolicitud" Type="int" Mode="In" />
+    <Parameter Name="Numero1116A" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha1116A" Type="datetime" Mode="In" />
+    <Parameter Name="Usuario" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GuardarUpdateClienteProspecto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdCliente" Type="int" Mode="In" />
+    <Parameter Name="RazonSocial" Type="varchar" Mode="In" />
+    <Parameter Name="NombreFantasia" Type="varchar" Mode="In" />
+    <Parameter Name="Cuit" Type="varchar" Mode="In" />
+    <Parameter Name="IDTipoDocumentoSAP" Type="int" Mode="In" />
+    <Parameter Name="IdClientePrincipal" Type="int" Mode="In" />
+    <Parameter Name="Calle" Type="varchar" Mode="In" />
+    <Parameter Name="Numero" Type="varchar" Mode="In" />
+    <Parameter Name="Dto" Type="varchar" Mode="In" />
+    <Parameter Name="Piso" Type="varchar" Mode="In" />
+    <Parameter Name="Cp" Type="varchar" Mode="In" />
+    <Parameter Name="Poblacion" Type="varchar" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="GrupoComercial" Type="varchar" Mode="In" />
+    <Parameter Name="ClaveGrupo" Type="varchar" Mode="In" />
+    <Parameter Name="Tratamiento" Type="varchar" Mode="In" />
+    <Parameter Name="DescripcionGe" Type="varchar" Mode="In" />
+    <Parameter Name="EsProspecto" Type="bit" Mode="In" />
+    <Parameter Name="idclienteprospecto" Type="numeric" Mode="In" />
+    <Parameter Name="IdSapOrganizacionDeVenta" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GuardarUpdateProveedorProspecto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdProveedor" Type="int" Mode="In" />
+    <Parameter Name="Sap_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdTipoDocumentoSAP" Type="int" Mode="In" />
+    <Parameter Name="NumeroDocumento" Type="nvarchar" Mode="In" />
+    <Parameter Name="Calle" Type="nvarchar" Mode="In" />
+    <Parameter Name="Piso" Type="nvarchar" Mode="In" />
+    <Parameter Name="Departamento" Type="nvarchar" Mode="In" />
+    <Parameter Name="Numero" Type="nvarchar" Mode="In" />
+    <Parameter Name="CP" Type="nvarchar" Mode="In" />
+    <Parameter Name="Ciudad" Type="nvarchar" Mode="In" />
+    <Parameter Name="Pais" Type="nvarchar" Mode="In" />
+    <Parameter Name="Activo" Type="bit" Mode="In" />
+    <Parameter Name="EsProspecto" Type="bit" Mode="In" />
+    <Parameter Name="idproveedorprospecto" Type="numeric" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ID_GRUPO_CRESUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="ReservaCartaDePorte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UsuarioReserva" Type="nvarchar" Mode="In" />
+    <Parameter Name="IdEstablecimientoOrigen" Type="int" Mode="In" />
+    <Parameter Name="IdTipoCartaDePorte" Type="int" Mode="In" />
+    <Parameter Name="IdGrupoEmpresa" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="CartaDePorteModelStoreContainer">
+    <EntitySet Name="AfipAuth" EntityType="Self.AfipAuth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="c1116a" EntityType="Self.c1116a" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="c1116aDetalle" EntityType="Self.c1116aDetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CartaDePorte1116A" EntityType="Self.CartaDePorte1116A" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CartasDePorte" EntityType="Self.CartasDePorte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chofer" EntityType="Self.Chofer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cosecha" EntityType="Self.Cosecha" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Especie" EntityType="Self.Especie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Establecimiento" EntityType="Self.Establecimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grano" EntityType="Self.Grano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GrupoEmpresa" EntityType="Self.GrupoEmpresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="logInterfaz" EntityType="Self.logInterfaz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogOperaciones" EntityType="Self.LogOperaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogSap" EntityType="Self.LogSap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoteCartasDePorte" EntityType="Self.LoteCartasDePorte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Solicitudes" EntityType="Self.Solicitudes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SolicitudesRecibidas" EntityType="Self.SolicitudesRecibidas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDeCarta" EntityType="Self.TipoDeCarta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDocumentoSAP" EntityType="Self.TipoDocumentoSAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoEspecie" EntityType="Self.TipoEspecie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoGrano" EntityType="Self.TipoGrano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AfipAuth_bkp" EntityType="Self.AfipAuth_bkp" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AfipAuth_bkp].[IdAfipAuth] AS [IdAfipAuth], 
+    [AfipAuth_bkp].[Token] AS [Token], 
+    [AfipAuth_bkp].[Sign] AS [Sign], 
+    [AfipAuth_bkp].[CuitRepresentado] AS [CuitRepresentado], 
+    [AfipAuth_bkp].[GenerationTime] AS [GenerationTime], 
+    [AfipAuth_bkp].[ExpirationTime] AS [ExpirationTime], 
+    [AfipAuth_bkp].[Service] AS [Service], 
+    [AfipAuth_bkp].[UniqueID] AS [UniqueID]
+    FROM [dbo].[AfipAuth_bkp] AS [AfipAuth_bkp]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="logsolicitudes" EntityType="Self.logsolicitudes" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [logsolicitudes].[IdSolicitud] AS [IdSolicitud], 
+    [logsolicitudes].[IdTipoDeCarta] AS [IdTipoDeCarta], 
+    [logsolicitudes].[ObservacionAfip] AS [ObservacionAfip], 
+    [logsolicitudes].[NumeroCartaDePorte] AS [NumeroCartaDePorte], 
+    [logsolicitudes].[Cee] AS [Cee], 
+    [logsolicitudes].[Ctg] AS [Ctg], 
+    [logsolicitudes].[FechaDeEmision] AS [FechaDeEmision], 
+    [logsolicitudes].[FechaDeCarga] AS [FechaDeCarga], 
+    [logsolicitudes].[FechaDeVencimiento] AS [FechaDeVencimiento], 
+    [logsolicitudes].[idProveedorTitularCartaDePorte] AS [idProveedorTitularCartaDePorte], 
+    [logsolicitudes].[IdClienteIntermediario] AS [IdClienteIntermediario], 
+    [logsolicitudes].[IdClienteRemitenteComercial] AS [IdClienteRemitenteComercial], 
+    [logsolicitudes].[RemitenteComercialComoCanjeador] AS [RemitenteComercialComoCanjeador], 
+    [logsolicitudes].[IdClienteCorredor] AS [IdClienteCorredor], 
+    [logsolicitudes].[IdClienteEntregador] AS [IdClienteEntregador], 
+    [logsolicitudes].[IdClienteDestinatario] AS [IdClienteDestinatario], 
+    [logsolicitudes].[IdClienteDestino] AS [IdClienteDestino], 
+    [logsolicitudes].[IdProveedorTransportista] AS [IdProveedorTransportista], 
+    [logsolicitudes].[IdChofer] AS [IdChofer], 
+    [logsolicitudes].[IdCosecha] AS [IdCosecha], 
+    [logsolicitudes].[IdEspecie] AS [IdEspecie], 
+    [logsolicitudes].[NumeroContrato] AS [NumeroContrato], 
+    [logsolicitudes].[SapContrato] AS [SapContrato], 
+    [logsolicitudes].[SinContrato] AS [SinContrato], 
+    [logsolicitudes].[CargaPesadaDestino] AS [CargaPesadaDestino], 
+    [logsolicitudes].[KilogramosEstimados] AS [KilogramosEstimados], 
+    [logsolicitudes].[DeclaracionDeCalidad] AS [DeclaracionDeCalidad], 
+    [logsolicitudes].[IdConformeCondicional] AS [IdConformeCondicional], 
+    [logsolicitudes].[PesoBruto] AS [PesoBruto], 
+    [logsolicitudes].[PesoTara] AS [PesoTara], 
+    [logsolicitudes].[PesoNeto] AS [PesoNeto], 
+    [logsolicitudes].[Observaciones] AS [Observaciones], 
+    [logsolicitudes].[LoteDeMaterial] AS [LoteDeMaterial], 
+    [logsolicitudes].[IdEstablecimientoProcedencia] AS [IdEstablecimientoProcedencia], 
+    [logsolicitudes].[IdEstablecimientoDestino] AS [IdEstablecimientoDestino], 
+    [logsolicitudes].[PatenteCamion] AS [PatenteCamion], 
+    [logsolicitudes].[PatenteAcoplado] AS [PatenteAcoplado], 
+    [logsolicitudes].[KmRecorridos] AS [KmRecorridos], 
+    [logsolicitudes].[EstadoFlete] AS [EstadoFlete], 
+    [logsolicitudes].[CantHoras] AS [CantHoras], 
+    [logsolicitudes].[TarifaReferencia] AS [TarifaReferencia], 
+    [logsolicitudes].[TarifaReal] AS [TarifaReal], 
+    [logsolicitudes].[IdClientePagadorDelFlete] AS [IdClientePagadorDelFlete], 
+    [logsolicitudes].[EstadoEnSAP] AS [EstadoEnSAP], 
+    [logsolicitudes].[EstadoEnAFIP] AS [EstadoEnAFIP], 
+    [logsolicitudes].[IdGrano] AS [IdGrano], 
+    [logsolicitudes].[CodigoAnulacionAfip] AS [CodigoAnulacionAfip], 
+    [logsolicitudes].[FechaAnulacionAfip] AS [FechaAnulacionAfip], 
+    [logsolicitudes].[CodigoRespuestaEnvioSAP] AS [CodigoRespuestaEnvioSAP], 
+    [logsolicitudes].[MensajeRespuestaEnvioSAP] AS [MensajeRespuestaEnvioSAP], 
+    [logsolicitudes].[CodigoRespuestaAnulacionSAP] AS [CodigoRespuestaAnulacionSAP], 
+    [logsolicitudes].[MensajeRespuestaAnulacionSAP] AS [MensajeRespuestaAnulacionSAP], 
+    [logsolicitudes].[IdEstablecimientoDestinoCambio] AS [IdEstablecimientoDestinoCambio], 
+    [logsolicitudes].[IdClienteDestinatarioCambio] AS [IdClienteDestinatarioCambio], 
+    [logsolicitudes].[FechaCreacion] AS [FechaCreacion], 
+    [logsolicitudes].[UsuarioCreacion] AS [UsuarioCreacion], 
+    [logsolicitudes].[FechaModificacion] AS [FechaModificacion], 
+    [logsolicitudes].[UsuarioModificacion] AS [UsuarioModificacion], 
+    [logsolicitudes].[IdChoferTransportista] AS [IdChoferTransportista], 
+    [logsolicitudes].[MOTIVO] AS [MOTIVO], 
+    [logsolicitudes].[IdEmpresa] AS [IdEmpresa], 
+    [logsolicitudes].[PHumedad] AS [PHumedad], 
+    [logsolicitudes].[POtros] AS [POtros]
+    FROM [dbo].[logsolicitudes] AS [logsolicitudes]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="proveedor_tmp" EntityType="Self.proveedor_tmp" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [proveedor_tmp].[IdProveedor] AS [IdProveedor], 
+    [proveedor_tmp].[Sap_Id] AS [Sap_Id], 
+    [proveedor_tmp].[Nombre] AS [Nombre], 
+    [proveedor_tmp].[IdTipoDocumentoSAP] AS [IdTipoDocumentoSAP], 
+    [proveedor_tmp].[NumeroDocumento] AS [NumeroDocumento], 
+    [proveedor_tmp].[Calle] AS [Calle], 
+    [proveedor_tmp].[Piso] AS [Piso], 
+    [proveedor_tmp].[Departamento] AS [Departamento], 
+    [proveedor_tmp].[Numero] AS [Numero], 
+    [proveedor_tmp].[CP] AS [CP], 
+    [proveedor_tmp].[Ciudad] AS [Ciudad], 
+    [proveedor_tmp].[Pais] AS [Pais], 
+    [proveedor_tmp].[Activo] AS [Activo], 
+    [proveedor_tmp].[Domicilio] AS [Domicilio], 
+    [proveedor_tmp].[FechaCreacion] AS [FechaCreacion], 
+    [proveedor_tmp].[EsProspecto] AS [EsProspecto], 
+    [proveedor_tmp].[IdSapOrganizacionDeVenta] AS [IdSapOrganizacionDeVenta]
+    FROM [dbo].[proveedor_tmp] AS [proveedor_tmp]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Provincia" EntityType="Self.Provincia" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Provincia].[Codigo] AS [Codigo], 
+    [Provincia].[Descripcion] AS [Descripcion], 
+    [Provincia].[IdPais] AS [IdPais]
+    FROM [dbo].[Provincia] AS [Provincia]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sol2tmp" EntityType="Self.sol2tmp" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sol2tmp].[IdSolicitud] AS [IdSolicitud], 
+    [sol2tmp].[IdTipoDeCarta] AS [IdTipoDeCarta], 
+    [sol2tmp].[ObservacionAfip] AS [ObservacionAfip], 
+    [sol2tmp].[NumeroCartaDePorte] AS [NumeroCartaDePorte], 
+    [sol2tmp].[Cee] AS [Cee], 
+    [sol2tmp].[Ctg] AS [Ctg], 
+    [sol2tmp].[FechaDeEmision] AS [FechaDeEmision], 
+    [sol2tmp].[FechaDeCarga] AS [FechaDeCarga], 
+    [sol2tmp].[FechaDeVencimiento] AS [FechaDeVencimiento], 
+    [sol2tmp].[idProveedorTitularCartaDePorte] AS [idProveedorTitularCartaDePorte], 
+    [sol2tmp].[IdClienteIntermediario] AS [IdClienteIntermediario], 
+    [sol2tmp].[IdEmpresaRemitenteComercial] AS [IdEmpresaRemitenteComercial], 
+    [sol2tmp].[IdClienteCorredor] AS [IdClienteCorredor], 
+    [sol2tmp].[IdClienteEntregador] AS [IdClienteEntregador], 
+    [sol2tmp].[IdClienteDestinatario] AS [IdClienteDestinatario], 
+    [sol2tmp].[IdClienteDestino] AS [IdClienteDestino], 
+    [sol2tmp].[IdProveedorTransportista] AS [IdProveedorTransportista], 
+    [sol2tmp].[IdChofer] AS [IdChofer], 
+    [sol2tmp].[IdCosecha] AS [IdCosecha], 
+    [sol2tmp].[IdEspecie] AS [IdEspecie], 
+    [sol2tmp].[NumeroContrato] AS [NumeroContrato], 
+    [sol2tmp].[SapContrato] AS [SapContrato], 
+    [sol2tmp].[SinContrato] AS [SinContrato], 
+    [sol2tmp].[CargaPesadaDestino] AS [CargaPesadaDestino], 
+    [sol2tmp].[KilogramosEstimados] AS [KilogramosEstimados], 
+    [sol2tmp].[DeclaracionDeCalidad] AS [DeclaracionDeCalidad], 
+    [sol2tmp].[IdConformeCondicional] AS [IdConformeCondicional], 
+    [sol2tmp].[PesoBruto] AS [PesoBruto], 
+    [sol2tmp].[PesoTara] AS [PesoTara], 
+    [sol2tmp].[PesoNeto] AS [PesoNeto], 
+    [sol2tmp].[Observaciones] AS [Observaciones], 
+    [sol2tmp].[LoteDeMaterial] AS [LoteDeMaterial], 
+    [sol2tmp].[IdEstablecimientoProcedencia] AS [IdEstablecimientoProcedencia], 
+    [sol2tmp].[IdEstablecimientoDestino] AS [IdEstablecimientoDestino], 
+    [sol2tmp].[PatenteCamion] AS [PatenteCamion], 
+    [sol2tmp].[PatenteAcoplado] AS [PatenteAcoplado], 
+    [sol2tmp].[KmRecorridos] AS [KmRecorridos], 
+    [sol2tmp].[EstadoFlete] AS [EstadoFlete], 
+    [sol2tmp].[CantHoras] AS [CantHoras], 
+    [sol2tmp].[TarifaReferencia] AS [TarifaReferencia], 
+    [sol2tmp].[TarifaReal] AS [TarifaReal], 
+    [sol2tmp].[IdClientePagadorDelFlete] AS [IdClientePagadorDelFlete], 
+    [sol2tmp].[EstadoEnSAP] AS [EstadoEnSAP], 
+    [sol2tmp].[EstadoEnAFIP] AS [EstadoEnAFIP], 
+    [sol2tmp].[IdGrano] AS [IdGrano], 
+    [sol2tmp].[CodigoAnulacionAfip] AS [CodigoAnulacionAfip], 
+    [sol2tmp].[FechaAnulacionAfip] AS [FechaAnulacionAfip], 
+    [sol2tmp].[CodigoRespuestaEnvioSAP] AS [CodigoRespuestaEnvioSAP], 
+    [sol2tmp].[MensajeRespuestaEnvioSAP] AS [MensajeRespuestaEnvioSAP], 
+    [sol2tmp].[CodigoRespuestaAnulacionSAP] AS [CodigoRespuestaAnulacionSAP], 
+    [sol2tmp].[MensajeRespuestaAnulacionSAP] AS [MensajeRespuestaAnulacionSAP], 
+    [sol2tmp].[IdEstablecimientoDestinoCambio] AS [IdEstablecimientoDestinoCambio], 
+    [sol2tmp].[IdClienteDestinatarioCambio] AS [IdClienteDestinatarioCambio], 
+    [sol2tmp].[FechaCreacion] AS [FechaCreacion], 
+    [sol2tmp].[UsuarioCreacion] AS [UsuarioCreacion], 
+    [sol2tmp].[FechaModificacion] AS [FechaModificacion], 
+    [sol2tmp].[UsuarioModificacion] AS [UsuarioModificacion]
+    FROM [dbo].[sol2tmp] AS [sol2tmp]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vChoferes" EntityType="Self.vChoferes" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vChoferes].[IdChofer] AS [IdChofer], 
+    [vChoferes].[RazonSocial] AS [RazonSocial], 
+    [vChoferes].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vChoferes] AS [vChoferes]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vClienteCorredor" EntityType="Self.vClienteCorredor" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vClienteCorredor].[IdCliente] AS [IdCliente], 
+    [vClienteCorredor].[RazonSocial] AS [RazonSocial], 
+    [vClienteCorredor].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vClienteCorredor] AS [vClienteCorredor]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vClienteDestinatario" EntityType="Self.vClienteDestinatario" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vClienteDestinatario].[IdCliente] AS [IdCliente], 
+    [vClienteDestinatario].[RazonSocial] AS [RazonSocial], 
+    [vClienteDestinatario].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vClienteDestinatario] AS [vClienteDestinatario]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vClienteDestinatarioCambio" EntityType="Self.vClienteDestinatarioCambio" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vClienteDestinatarioCambio].[IdCliente] AS [IdCliente], 
+    [vClienteDestinatarioCambio].[RazonSocial] AS [RazonSocial], 
+    [vClienteDestinatarioCambio].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vClienteDestinatarioCambio] AS [vClienteDestinatarioCambio]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vClienteDestino" EntityType="Self.vClienteDestino" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vClienteDestino].[IdCliente] AS [IdCliente], 
+    [vClienteDestino].[RazonSocial] AS [RazonSocial], 
+    [vClienteDestino].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vClienteDestino] AS [vClienteDestino]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vClienteEntregador" EntityType="Self.vClienteEntregador" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vClienteEntregador].[IdCliente] AS [IdCliente], 
+    [vClienteEntregador].[RazonSocial] AS [RazonSocial], 
+    [vClienteEntregador].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vClienteEntregador] AS [vClienteEntregador]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vClienteIntermediario" EntityType="Self.vClienteIntermediario" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vClienteIntermediario].[IdCliente] AS [IdCliente], 
+    [vClienteIntermediario].[RazonSocial] AS [RazonSocial], 
+    [vClienteIntermediario].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vClienteIntermediario] AS [vClienteIntermediario]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vClientePagadorDelFlete" EntityType="Self.vClientePagadorDelFlete" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vClientePagadorDelFlete].[IdCliente] AS [IdCliente], 
+    [vClientePagadorDelFlete].[RazonSocial] AS [RazonSocial], 
+    [vClientePagadorDelFlete].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vClientePagadorDelFlete] AS [vClientePagadorDelFlete]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vClienteRemitenteComercial" EntityType="Self.vClienteRemitenteComercial" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vClienteRemitenteComercial].[IdCliente] AS [IdCliente], 
+    [vClienteRemitenteComercial].[RazonSocial] AS [RazonSocial], 
+    [vClienteRemitenteComercial].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vClienteRemitenteComercial] AS [vClienteRemitenteComercial]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vClientes" EntityType="Self.vClientes" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vClientes].[IdCliente] AS [IdCliente], 
+    [vClientes].[RazonSocial] AS [RazonSocial], 
+    [vClientes].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vClientes] AS [vClientes]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vCosecha" EntityType="Self.vCosecha" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vCosecha].[IdCosecha] AS [IdCosecha], 
+    [vCosecha].[Codigo] AS [Codigo], 
+    [vCosecha].[Descripcion] AS [Descripcion], 
+    [vCosecha].[FechaCreacion] AS [FechaCreacion], 
+    [vCosecha].[IdGrupoEmpresa] AS [IdGrupoEmpresa]
+    FROM [dbo].[vCosecha] AS [vCosecha]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vEspecie" EntityType="Self.vEspecie" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vEspecie].[IdEspecie] AS [IdEspecie], 
+    [vEspecie].[Codigo] AS [Codigo], 
+    [vEspecie].[Descripcion] AS [Descripcion], 
+    [vEspecie].[FechaCreacion] AS [FechaCreacion], 
+    [vEspecie].[IdGrupoEmpresa] AS [IdGrupoEmpresa]
+    FROM [dbo].[vEspecie] AS [vEspecie]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vEstablecimientoDestino" EntityType="Self.vEstablecimientoDestino" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vEstablecimientoDestino].[IdEstablecimiento] AS [IdEstablecimiento], 
+    [vEstablecimientoDestino].[Descripcion] AS [Descripcion], 
+    [vEstablecimientoDestino].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vEstablecimientoDestino] AS [vEstablecimientoDestino]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vEstablecimientoOrigen" EntityType="Self.vEstablecimientoOrigen" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vEstablecimientoOrigen].[IdEstablecimiento] AS [IdEstablecimiento], 
+    [vEstablecimientoOrigen].[Descripcion] AS [Descripcion], 
+    [vEstablecimientoOrigen].[IdEmpresa] AS [IdEmpresa]
+    FROM [dbo].[vEstablecimientoOrigen] AS [vEstablecimientoOrigen]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vGranoCosecha" EntityType="Self.vGranoCosecha" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vGranoCosecha].[IdGrano] AS [IdGrano], 
+    [vGranoCosecha].[Grano] AS [Grano], 
+    [vGranoCosecha].[Descripcion] AS [Descripcion], 
+    [vGranoCosecha].[IdGrupoEmpresa] AS [IdGrupoEmpresa]
+    FROM [dbo].[vGranoCosecha] AS [vGranoCosecha]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vRemitoParaguay" EntityType="Self.vRemitoParaguay" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vRemitoParaguay].[idsolicitud] AS [idsolicitud], 
+    [vRemitoParaguay].[Descripcion] AS [Descripcion], 
+    [vRemitoParaguay].[Cee] AS [Cee], 
+    [vRemitoParaguay].[FechaCreacion] AS [FechaCreacion], 
+    [vRemitoParaguay].[FechaVencimiento] AS [FechaVencimiento], 
+    [vRemitoParaguay].[NumeroRemision] AS [NumeroRemision], 
+    [vRemitoParaguay].[FechaDeEmision] AS [FechaDeEmision], 
+    [vRemitoParaguay].[RazonSocial] AS [RazonSocial], 
+    [vRemitoParaguay].[CUIT] AS [CUIT], 
+    [vRemitoParaguay].[Direccion] AS [Direccion], 
+    [vRemitoParaguay].[MotivoTraslado] AS [MotivoTraslado], 
+    [vRemitoParaguay].[CteDeVta] AS [CteDeVta], 
+    [vRemitoParaguay].[EPDireccion] AS [EPDireccion], 
+    [vRemitoParaguay].[LocPartida] AS [LocPartida], 
+    [vRemitoParaguay].[ProvPartida] AS [ProvPartida], 
+    [vRemitoParaguay].[EDDireccion] AS [EDDireccion], 
+    [vRemitoParaguay].[LocLlegada] AS [LocLlegada], 
+    [vRemitoParaguay].[ProvLlegada] AS [ProvLlegada], 
+    [vRemitoParaguay].[KmRecorridos] AS [KmRecorridos], 
+    [vRemitoParaguay].[TranspRazonSocial] AS [TranspRazonSocial], 
+    [vRemitoParaguay].[TransportistaCUIT] AS [TransportistaCUIT], 
+    [vRemitoParaguay].[MarcaVehiculo] AS [MarcaVehiculo], 
+    [vRemitoParaguay].[PatenteCamion] AS [PatenteCamion], 
+    [vRemitoParaguay].[PatenteAcoplado] AS [PatenteAcoplado], 
+    [vRemitoParaguay].[ChoferRazonSocial] AS [ChoferRazonSocial], 
+    [vRemitoParaguay].[ChoferCUIT] AS [ChoferCUIT], 
+    [vRemitoParaguay].[ChoferDomicilio] AS [ChoferDomicilio], 
+    [vRemitoParaguay].[Cantidad] AS [Cantidad], 
+    [vRemitoParaguay].[KG] AS [KG], 
+    [vRemitoParaguay].[DescripcionDetallada] AS [DescripcionDetallada], 
+    [vRemitoParaguay].[HabilitacionNum] AS [HabilitacionNum]
+    FROM [dbo].[vRemitoParaguay] AS [vRemitoParaguay]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vReporteCDP" EntityType="Self.vReporteCDP" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vReporteCDP].[IdSolicitud] AS [IdSolicitud], 
+    [vReporteCDP].[TipoCarta] AS [TipoCarta], 
+    [vReporteCDP].[ObservacionAfip] AS [ObservacionAfip], 
+    [vReporteCDP].[NumeroCartaDePorte] AS [NumeroCartaDePorte], 
+    [vReporteCDP].[Cee] AS [Cee], 
+    [vReporteCDP].[Ctg] AS [Ctg], 
+    [vReporteCDP].[FechaDeEmision] AS [FechaDeEmision], 
+    [vReporteCDP].[FechaDeCarga] AS [FechaDeCarga], 
+    [vReporteCDP].[FechaDeVencimiento] AS [FechaDeVencimiento], 
+    [vReporteCDP].[TitularCDP] AS [TitularCDP], 
+    [vReporteCDP].[Intermediario] AS [Intermediario], 
+    [vReporteCDP].[CteRemitenteComecial] AS [CteRemitenteComecial], 
+    [vReporteCDP].[EsCanjeador] AS [EsCanjeador], 
+    [vReporteCDP].[CteCorredor] AS [CteCorredor], 
+    [vReporteCDP].[Entregador] AS [Entregador], 
+    [vReporteCDP].[Destinatario] AS [Destinatario], 
+    [vReporteCDP].[Destino] AS [Destino], 
+    [vReporteCDP].[Transportista] AS [Transportista], 
+    [vReporteCDP].[CTransportista] AS [CTransportista], 
+    [vReporteCDP].[Chofer] AS [Chofer], 
+    [vReporteCDP].[Grano] AS [Grano], 
+    [vReporteCDP].[NumeroContrato] AS [NumeroContrato], 
+    [vReporteCDP].[CargaPesadaDestino] AS [CargaPesadaDestino], 
+    [vReporteCDP].[KilogramosEstimados] AS [KilogramosEstimados], 
+    [vReporteCDP].[ConformeCondicional] AS [ConformeCondicional], 
+    [vReporteCDP].[PesoBruto] AS [PesoBruto], 
+    [vReporteCDP].[PesoTara] AS [PesoTara], 
+    [vReporteCDP].[PesoNeto] AS [PesoNeto], 
+    [vReporteCDP].[Observaciones] AS [Observaciones], 
+    [vReporteCDP].[EstProcedencia] AS [EstProcedencia], 
+    [vReporteCDP].[EstDestino] AS [EstDestino], 
+    [vReporteCDP].[PatenteCamion] AS [PatenteCamion], 
+    [vReporteCDP].[PatenteAcoplado] AS [PatenteAcoplado], 
+    [vReporteCDP].[KmRecorridos] AS [KmRecorridos], 
+    [vReporteCDP].[EstadoFlete] AS [EstadoFlete], 
+    [vReporteCDP].[CantHoras] AS [CantHoras], 
+    [vReporteCDP].[TarifaReferencia] AS [TarifaReferencia], 
+    [vReporteCDP].[TarifaReal] AS [TarifaReal], 
+    [vReporteCDP].[CtePagador] AS [CtePagador], 
+    [vReporteCDP].[EstadoEnAFIP] AS [EstadoEnAFIP], 
+    [vReporteCDP].[EstadoEnSAP] AS [EstadoEnSAP], 
+    [vReporteCDP].[EstDestinoCambio] AS [EstDestinoCambio], 
+    [vReporteCDP].[CteDestinatarioCambio] AS [CteDestinatarioCambio], 
+    [vReporteCDP].[CodigoAnulacionAfip] AS [CodigoAnulacionAfip], 
+    [vReporteCDP].[FechaAnulacionAfip] AS [FechaAnulacionAfip], 
+    [vReporteCDP].[CodigoRespuestaEnvioSAP] AS [CodigoRespuestaEnvioSAP], 
+    [vReporteCDP].[CodigoRespuestaAnulacionSAP] AS [CodigoRespuestaAnulacionSAP], 
+    [vReporteCDP].[FechaCreacion] AS [FechaCreacion], 
+    [vReporteCDP].[UsuarioCreacion] AS [UsuarioCreacion], 
+    [vReporteCDP].[FechaModificacion] AS [FechaModificacion], 
+    [vReporteCDP].[UsuarioModificacion] AS [UsuarioModificacion], 
+    [vReporteCDP].[IdEmpresa] AS [IdEmpresa], 
+    [vReporteCDP].[IdGrano] AS [IdGrano], 
+    [vReporteCDP].[idProveedorTitularCartaDePorte] AS [idProveedorTitularCartaDePorte], 
+    [vReporteCDP].[IdClienteIntermediario] AS [IdClienteIntermediario], 
+    [vReporteCDP].[IdClienteRemitenteComercial] AS [IdClienteRemitenteComercial], 
+    [vReporteCDP].[IdClienteCorredor] AS [IdClienteCorredor], 
+    [vReporteCDP].[IdClienteEntregador] AS [IdClienteEntregador], 
+    [vReporteCDP].[IdClienteDestinatario] AS [IdClienteDestinatario], 
+    [vReporteCDP].[IdProveedorTransportista] AS [IdProveedorTransportista], 
+    [vReporteCDP].[IdChofer] AS [IdChofer], 
+    [vReporteCDP].[IdEstablecimientoProcedencia] AS [IdEstablecimientoProcedencia], 
+    [vReporteCDP].[IdEstablecimientoDestino] AS [IdEstablecimientoDestino], 
+    [vReporteCDP].[PHumedad] AS [PHumedad], 
+    [vReporteCDP].[POtros] AS [POtros], 
+    [vReporteCDP].[IdCosecha] AS [IdCosecha], 
+    [vReporteCDP].[CosechaDescripcion] AS [CosechaDescripcion]
+    FROM [dbo].[vReporteCDP] AS [vReporteCDP]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Solicitudes_TipoDeCarta" Association="Self.FK_Solicitudes_TipoDeCarta">
+      <End Role="TipoDeCarta" EntitySet="TipoDeCarta" />
+      <End Role="Solicitudes" EntitySet="Solicitudes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

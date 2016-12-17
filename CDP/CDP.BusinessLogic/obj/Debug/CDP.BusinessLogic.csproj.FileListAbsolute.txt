@@ -1,0 +1,12 @@
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\bin\Debug\CDP.BusinessLogic.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\bin\Debug\CDP.BusinessLogic.pdb
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\bin\Debug\AutoMapper.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\bin\Debug\CDP.Domain.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\bin\Debug\CDP.Repositories.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\bin\Debug\EntityFramework.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\bin\Debug\CDP.Domain.pdb
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\bin\Debug\CDP.Repositories.pdb
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\obj\Debug\CDP.BusinessLogic.csprojResolveAssemblyReference.cache
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\obj\Debug\CDP.BusinessLogic.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.BusinessLogic\obj\Debug\CDP.BusinessLogic.pdb

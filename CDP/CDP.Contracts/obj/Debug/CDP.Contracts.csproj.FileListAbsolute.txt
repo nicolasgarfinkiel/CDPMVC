@@ -1,0 +1,5 @@
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Contracts\bin\Debug\CDP.Contracts.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Contracts\bin\Debug\CDP.Contracts.pdb
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Contracts\obj\Debug\CDP.Contracts.csprojResolveAssemblyReference.cache
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Contracts\obj\Debug\CDP.Contracts.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Contracts\obj\Debug\CDP.Contracts.pdb

@@ -1,0 +1,30 @@
+/**
+ * English - this is the default DataTables ships with
+ *  @name English
+ *  @anchor English
+ *  @author <a href="http://www.sprymedia.co.uk/">Allan Jardine</a>
+ */
+
+{
+	"sEmptyTable":     "No data available in table",
+	"sInfo":           "Mostrando _START_ a _END_ de _TOTAL_ registros",
+	"sInfoEmpty":      "Mostrando 0 a 0 de 0 registros",
+	"sInfoFiltered":   "(Total de Registros _MAX_)",
+	"sInfoPostFix":    "",
+	"sInfoThousands":  ",",
+	"sLengthMenu":     "Show _MENU_ entries",
+	"sLoadingRecords": "Loading...",
+	"sProcessing":     "Processing...",
+	"sSearch":         "Search:",
+	"sZeroRecords":    "No hay resultados para la búsqueda aplicada",
+	"oPaginate": {
+		"sFirst":    "First",
+		"sLast":     "Last",
+		"sNext":     "Next",
+		"sPrevious": "Previous"
+	},
+	"oAria": {
+		"sSortAscending":  ": activate to sort column ascending",
+		"sSortDescending": ": activate to sort column descending"
+	}
+}

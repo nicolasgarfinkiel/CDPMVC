@@ -1,0 +1,4 @@
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Domain\bin\Release\CDP.Domain.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Domain\bin\Release\CDP.Domain.pdb
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Domain\obj\Release\CDP.Domain.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Domain\obj\Release\CDP.Domain.pdb

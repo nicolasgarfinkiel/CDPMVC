@@ -1,0 +1,524 @@
+﻿@model CDP.WebApp.Models.ChoferViewModels
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .col-md-10 {
+        margin-bottom: 10px;
+    }
+
+    /*#ModalChofer .modal-body {
+        height: auto;
+    }*/
+
+    .modal-dialog,
+    .modal-content {
+        height: auto;
+    }
+
+    .modal-body {
+        max-height: calc(100% - 120px);
+        overflow-y: hidden;
+    }
+</style>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(document).ready(function () {
+            $("#GridChofer").DataTable({
+                "processing": true,
+                oLanguage: {
+                    sProcessing: "<img src=@Url.Content("~/Content/themes/loading.gif") alt=Image />"
+                },
+                "rowHeight": '2px',
+                "autoWidth": false,
+                "order": [[1, "asc"]],
+                "serverSide": true,
+                "filter": false,
+                "orderMulti": false,
+                "bLengthChange": false,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/380cb78f450/i18n/Spanish.json'
+                },
+                "ajax": {
+                    "url": '@Url.Action("GetChoferesGrid", "Chofer")',
+                    "type": "POST",
+                    "datatype": "json",
+                    data: function (data) {
+                        return {
+                            IdChofer: $('select[name=cboChofer]').val(),
+                            data: data
+                        };
+                    },
+                    "error": function (request, status, error) {
+                        alert('Ocurrió un error al buscar los choferes. ' + error);
+                    },
+                },
+                "columns": [
+                    { "data": "IdChofer", "name": "IdChofer", "bSortable": true, "visible": false },
+                    { "data": "Cuit", "name": "Cuit", "bSortable": true },
+                    { "data": "Descripcion", "name": "Descripcion", "bSortable": true },
+                    { "data": "Habilitado", "name": "Activo", "bSortable": true },
+                    { "data": "Transportista", "name": "Transportista", "bSortable": true }],
+                "columnDefs": [{
+                    "className": "dt-center",
+                    "targets": 5,
+                    "data": null,
+                    "render": function (data, type, row) {
+                        if (data.Activo) {
+                            return '<button id="btnEdit" name="btnEdit" class="btn btn-warning btn-xs"  data-title="Edit" data-toggle="modal" data-target="#ModalChofer" ><span class="glyphicon glyphicon-pencil"></span></button> ' +
+                                   '<button id="btnDelete" name="btnDelete" class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#ModalDelete" ><span class="glyphicon glyphicon-thumbs-down"></span></button>'
+                        }
+                        else {
+                            return '<button id="btnEdit" name="btnEdit" class="btn btn-warning btn-xs"  data-title="Edit" data-toggle="modal" data-target="#ModalChofer" ><span class="glyphicon glyphicon-pencil"></span></button> ' +
+                                   '<button id="btnHabilitar" name="btnHabilitar" class="btn btn-success btn-xs" data-title="Habilitar" data-toggle="modal" data-target="#ModalDelete" ><span class="glyphicon glyphicon-thumbs-up"></span></button>'
+                        }
+                    },
+                }],
+            });
+
+            var ChoferId = $('select[name=cboChofer]').val();
+            //#region Chofer/Transportista
+            table = $('#GridChofer').DataTable();
+            $('#GridChofer tbody').on('click', 'button', function () {
+                var data = table.row($(this).parents('tr')).data();
+                //Chofer !Cresca = Nombre Apellido Cuit Camion Acoplado
+                //Cresca = Nombre Apellido Cuit Domicilio Marca del Vehiculo Camion Acoplado
+                //Transportista !Cresca = Descripcion Cuit
+                //Cresca = Descripcion Cuit Domicilio Marca de Vehiculo
+                $("#DivNombre").hide();
+                $("#DivApellido").hide();
+                $("#DivCuit").hide();
+                $("#DivDomicilio").hide();
+                $("#DivMarca").hide();
+                $("#DivCamion").hide();
+                $("#DivAcoplado").hide();
+
+                if (!data.EsChoferTransportista) {
+                    $("#TitlePopUp").text('Editar Chofer');
+                    //Chofer !Cresca
+                    $("#DivNombre").show();
+                    $("#lblNombre").empty();
+                    $("#lblNombre").append('Nombre:');
+                    $("#DivApellido").show();
+                    $("#DivCuit").show();
+                    $("#DivCamion").show();
+                    $("#DivAcoplado").show();
+                    //Chofer Cresca
+                    @{if (Security.IsUserInRole("Administracion") == false)
+                      {
+                        <text>
+                    $("#DivMarca").show();
+                    $("#DivDomicilio").show();
+                    </text>
+                      }
+                    }
+                }
+                else {
+                    $("#TitlePopUp").text('Editar Transportista');
+                    //Transportista !Cresca
+                    $("#lblNombre").empty();
+                    $("#lblNombre").append('Descripción:');
+                    $("#DivNombre").show();
+                    $("#DivCuit").show();
+                    //Transportista Cresca
+                    @{if (Security.IsUserInRole("Administracion") == false)
+                      {
+                        <text>
+                    $("#DivMarca").show();
+                    $("#DivDomicilio").show();
+                    </text>
+                      }
+                    }
+                }
+                $("#IdChofer").val(data.IdChofer);
+                $("#EsChoferTransportista").val(data.EsChoferTransportista);
+                $("#txtNombre").val(data.Nombre);
+                $("#txtApellido").val(data.Apellido);
+                $("#txtCuit").val(data.Cuit);
+                $("#txtDomicilio").val(data.Domicilio);
+                $("#txtMarca").val(data.Marca);
+                $("#txtCamion").val(data.Camion);
+                $("#txtAcoplado").val(data.Acoplado);
+            });
+
+            $(document).on('click', 'button[name="btnDelete"]', function (e) {
+                var data = table.row($(this).parents('tr')).data();
+                $("#IdChoferDelete").val(data.IdChofer);
+                $("#Activo").val(data.Activo);
+                $("#TitleDeletePopUp").empty();
+                $("#lblModalMessage").empty();
+                $("#TitleDeletePopUp").append('Deshabilitar!');
+                $("#lblModalMessage").append('¿Está seguro que desea deshabilitar el Chofer o Transportista?');
+                $("#btnDeleteYes").val('Deshabilitar!');
+                $("#btnDeleteYes").removeClass("");
+                $("#btnDeleteYes").addClass("btn btn-primary");
+            });
+
+            $(document).on('click', 'button[name="btnHabilitar"]', function (e) {
+                var data = table.row($(this).parents('tr')).data();
+                $("#IdChoferDelete").val(data.IdChofer);
+                $("#Activo").val(data.Activo);
+                $("#TitleDeletePopUp").empty();
+                $("#lblModalMessage").empty();
+                $("#TitleDeletePopUp").append('Habilitar!');
+                $("#lblModalMessage").append('¿Está seguro que desea habilitar el Chofer o Transportista?');
+                $("#btnDeleteYes").val('Habilitar!');
+                $("#btnDeleteYes").removeClass("btn btn-primary");
+                $("#btnDeleteYes").addClass("btn btn-success");
+            });
+
+            $('#btnBuscar').click(function () {
+                $('#GridChofer').dataTable().fnDraw();
+            });
+
+            $('#btnLimpiar').click(function () {
+                $('select[name=cboChofer]').empty();
+                $('#GridChofer').dataTable().fnDraw();
+            });
+
+            $('#btnCancelar').click(function () {
+                ClearPopUp();
+            });
+
+            $('#btnCancelarDelete').click(function () {
+                ClearPopUp();
+            });
+
+            $('#btnCreateTransportista').click(function () {
+                ClearPopUp();
+                ShowTransportista();
+            });
+
+            $('#btnCreateChofer').click(function () {
+                ClearPopUp();
+                ShowChofer();
+            });
+
+            @if (ViewData.ModelState.Count > 0)
+            {
+                if (ViewData.ModelState["Nombre"].Errors != null)
+                {
+                    if (Model.EsChoferTransportista)
+                    {
+                        <text>
+            ShowTransportista();
+            $("#ModalChofer").modal('show');
+            </text>
+                    }
+                    else
+                    {
+                        <text>
+            ShowChofer();
+            $("#ModalChofer").modal('show');
+            </text>
+                    }
+                }
+            }
+
+
+            function ShowChofer() {
+                $("#DivNombre").hide();
+                $("#DivApellido").hide();
+                $("#DivCuit").hide();
+                $("#DivDomicilio").hide();
+                $("#DivMarca").hide();
+                $("#DivCamion").hide();
+                $("#DivAcoplado").hide();
+                $("#TitlePopUp").text('Crear Chofer');
+                $("#EsChoferTransportista").val(false);
+                $("#lblNombre").empty();
+                $("#lblNombre").append('Nombre:');
+                $("#DivNombre").show();
+                $("#DivApellido").show();
+                $("#DivCuit").show();
+                $("#DivCamion").show();
+                $("#DivAcoplado").show();
+                //Chofer Cresca
+                @{if (Security.IsUserInRole("Administracion") == false)
+                  {
+                    <text>
+                $("#DivMarca").show();
+                $("#DivDomicilio").show();
+                </text>
+                  }}
+            }
+
+            function ShowTransportista() {
+                $("#DivNombre").hide();
+                $("#DivApellido").hide();
+                $("#DivCuit").hide();
+                $("#DivDomicilio").hide();
+                $("#DivMarca").hide();
+                $("#DivCamion").hide();
+                $("#DivAcoplado").hide();
+
+                $("#TitlePopUp").text('Crear Transportista');
+                $("#EsChoferTransportista").val(true);
+                //Transportista !Cresca
+                $("#lblNombre").empty();
+                $("#lblNombre").append('Descripción:');
+                $("#DivNombre").show();
+                $("#DivCuit").show();
+                //Transportista Cresca
+                @{if (Security.IsUserInRole("Administracion") == false)
+                  {
+                    <text>
+                $("#DivMarca").show();
+                $("#DivDomicilio").show();
+                </text>
+                  }
+                }
+            }
+
+            function ClearPopUp() {
+                $("#IdChofer").val('0');
+                $("#txtNombre").val('');
+                $("#txtApellido").val('');
+                $("#txtCuit").val('');
+                $("#txtDomicilio").val('');
+                $("#txtMarca").val('');
+                $("#txtCamion").val('');
+                $("#txtAcoplado").val('');
+            }
+
+            $("#cboChofer").select2({
+                ajax: {
+                    url: '@Url.Action("GetChoferesCombo", "Chofer")',
+                    dataType: 'json',
+                    delay: 100,
+                    minimumInputLength: 3,
+                    async: false,
+                    pagination: { more: true },
+                    data: function (params, page) {
+                        return {
+                            ChoferSearch: params.term,
+                            page: page || 1
+                        };
+                    },
+                    initSelection: function (params, page) {
+                        return {
+                            ChoferSearch: params.term,
+                            page: page || 1
+                        };
+                    },
+                    processResults: function (data, params) {
+                        var Results = [];
+                        var more = 0;
+                        if (data != null && data.length > 0) {
+                            more = (params.page * 10) < data.length;
+                            $.each(data, function (index, item) {
+                                Results.push({
+                                    id: item.IdChofer,
+                                    text: item.Cuit + '-' + item.Nombre + ' ' + item.Apellido
+                                });
+                            });
+                        }
+                        return {
+                            results: Results, pagination: true
+                        };
+                    },
+                    placeholder: "Seleccione un chofer",
+                    cache: true,
+                    error: function (request, status, error) {
+                        alert('Ocurrió un error al buscar un chofer. ' + error);
+                    },
+                    escapeMarkup: function (markup) {
+                        return markup;
+                    },
+                    templateResult: function (repo) {
+                        if (repo.loading) return repo.text;
+                        return repo.full_name;
+                    },
+                    templateSelection: function (repo) {
+                        return repo.full_name || repo.text;
+                    }
+                }
+            });
+        });
+    });
+</script>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="content-page">
+        <div class="content">
+            <div class="container">
+                <div class="page-header">
+                    <h3 class="page-title">Administración de Choferes</h3>
+                    <ol class="breadcrumb">
+                        <li><a>CDP</a></li>
+                        <li><a>Adminitración</a></li>
+                        <li class="active">Chofer</li>
+                    </ol>
+                </div>
+                @if (TempData.Count > 0)
+                {
+                    if (TempData["TypeMessage"].ToString() == "Success")
+                    {
+                        <div class="alert alert-success">
+                            <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                            <strong>@TempData["MessageUser"].ToString()</strong>
+                        </div>
+                    }
+                    else if (TempData["TypeMessage"].ToString() == "Error")
+                    {
+                        <div class="alert alert-danger">
+                            <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                            <strong>@TempData["MessageUser"].ToString()</strong>
+                        </div>
+                    }
+                }
+                <fieldset class="content-group">
+                    <div class="portlet portlet-boxed">
+                        <div class="portlet-header" style="text-align: left; align-content: flex-start">
+                            <h4 class="portlet-title" style="text-align: left; align-content: flex-start">Búsqueda</h4>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Chofer:</label>
+                                <div class="col-md-10">
+                                    <select id="cboChofer" name="cboChofer" class="js-example-basic-single js-states form-control"></select>
+                                </div>
+                                <div style="text-align:right">
+                                    @*<button type="button" class="btn btn-default" data-toggle="modal" data-target="#ModalChofer" id="btnCreateTransportista" name="btnCreateTransportista">Crear Transportista</button>
+                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#ModalChofer" id="btnCreateChofer" name="btnCreateChofer">Crear Chofer</button>*@
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#ModalChofer" id="btnCreateTransportista" name="btnCreateTransportista">Crear Transportista</button>
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#ModalChofer" id="btnCreateChofer" name="btnCreateChofer">Crear Chofer</button>
+                                    <button type="button" class="btn btn-default" id="btnBuscar" name="btnBuscar">Buscar</button>
+                                    <button type="button" class="btn btn-default" id="btnLimpiar" name="btnLimpiar">Limpiar Filtros</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="portlet portlet-boxed portlet-table">
+                    <div class="portlet-header">
+                        <h4 class="portlet-title">
+                            <u>Resultado</u>
+                        </h4>
+                    </div>
+                    <div class="portlet-body">
+                        <table id="GridChofer" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>IdChofer</th>
+                                    <th>Cuit</th>
+                                    <th>Descripcion</th>
+                                    <th>Activo</th>
+                                    <th>Transportista</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ModalChofer" class="modal modal-styled fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title" id="TitlePopUp" title="Editar"></h3>
+                </div>
+                @using (Html.BeginForm("Save", "Chofer", FormMethod.Post))
+                {
+                    <div class="modal-body" id="ModalBody">
+                        @if (ViewData.ModelState.Count > 0)
+                        {
+                            <div class="alert alert-danger">
+                                @Html.ValidationSummary()
+                            </div>
+                        }
+                        <div class="form-group @(ViewData.ModelState.IsValidField(Html.IdFor(x => x.Nombre).ToString()) ? null : "has-error")" id="DivNombre">
+                            <h6 class="col-md-2" title="" id="lblNombre"></h6>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Nombre, new { id = "txtNombre", @class = "form-control" })
+                                @Html.HiddenFor(m => Model.IdChofer)
+                                @Html.HiddenFor(m => Model.EsChoferTransportista)
+                            </div>
+                        </div>
+                        <div class="form-group @(ViewData.ModelState.IsValidField(Html.IdFor(x => x.Apellido).ToString()) ? null : "has-error")" id=" divapellido">
+                            <h6 class="col-md-2">
+                                Apellido:
+                            </h6>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Apellido, new { id = "txtApellido", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group @(ViewData.ModelState.IsValidField(Html.IdFor(x => x.Cuit).ToString()) ? null : "has-error")" id=" divcuit">
+                            <h6 class="col-md-2">
+                                CUIT:
+                            </h6>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Cuit, new { id = "txtCuit", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group @(ViewData.ModelState.IsValidField(Html.IdFor(x => x.Domicilio).ToString()) ? null : "has-error")" id="DivDomicilio">
+                            <h6 class="col-md-2">
+                                Domicilio:
+                            </h6>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Domicilio, new { id = "txtDomicilio", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group @(ViewData.ModelState.IsValidField(Html.IdFor(x => x.Marca).ToString()) ? null : "has-error")" id="DivMarca">
+                            <h6 class="col-md-2">
+                                Marca del vehículo:
+                            </h6>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Marca, new { id = "txtMarca", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group @(ViewData.ModelState.IsValidField(Html.IdFor(x => x.Camion).ToString()) ? null : "has-error")" id="DivCamion">
+                            <h6 class="col-md-2">
+                                Camión:
+                            </h6>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Camion, new { id = "txtCamion", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group @(ViewData.ModelState.IsValidField(Html.IdFor(x => x.Acoplado).ToString()) ? null : "has-error")" id="DivAcoplado">
+                            <h6 class="col-md-2">
+                                Acoplado:
+                            </h6>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Acoplado, new { id = "txtAcoplado", @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btnCancelar" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <input type="submit" class="btn btn-primary" value="Guardar" id="btnGuardar" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm("Habilitar", "Chofer", FormMethod.Get))
+    {
+        <div id="ModalDelete" class="modal modal-styled fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        @Html.HiddenFor(m => Model.IdChofer, new { @id = "IdChoferDelete" })
+                        @Html.HiddenFor(m => Model.Activo)
+                        <h3 class="modal-title" id="TitleDeletePopUp"></h3>
+                        @*<label class="modal-title" title="" id="TitleDeletePopUp"></label>*@
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h6 id="lblModalMessage"></h6>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btnCancelarDelete" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <input type="submit" class="btn btn-primary" value="" id="btnDeleteYes" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</asp:Content>

@@ -1,0 +1,5 @@
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Domain\bin\Debug\CDP.Domain.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Domain\bin\Debug\CDP.Domain.pdb
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Domain\obj\Debug\CDP.Domain.csprojResolveAssemblyReference.cache
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Domain\obj\Debug\CDP.Domain.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Domain\obj\Debug\CDP.Domain.pdb

@@ -1,0 +1,12 @@
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\bin\Debug\CDP.Repositories.dll.config
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\bin\Debug\CDP.Repositories.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\bin\Debug\CDP.Repositories.pdb
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\bin\Debug\CDP.Domain.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\bin\Debug\EntityFramework.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\bin\Debug\EntityFramework.SqlServer.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\bin\Debug\CDP.Domain.pdb
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\bin\Debug\EntityFramework.xml
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\bin\Debug\EntityFramework.SqlServer.xml
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\obj\Debug\CDP.Repositories.csprojResolveAssemblyReference.cache
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\obj\Debug\CDP.Repositories.dll
+D:\Users\sposzalski\Documents\Visual Studio 2013\Projects\CDP\CDP.Repositories\obj\Debug\CDP.Repositories.pdb

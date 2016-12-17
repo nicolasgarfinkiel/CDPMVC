@@ -1,0 +1,268 @@
+﻿@model IList<CDP.WebApp.Models.ChoferViewModels>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="//cdn.datatables.net/1.10.12/css/dataTables.jqueryui.min.css" rel="stylesheet" />
+<link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+<script type="text/javascript">
+    $(function () {
+        $(document).ready(function () {
+            $("#GridChofer").DataTable({
+                "processing": true,
+                oLanguage: {
+                    sProcessing: "<img src=@Url.Content("~/Content/themes/loading.gif") alt=Image />"
+                },
+                "serverSide": true,
+                "filter": false,
+                "orderMulti": false,
+                "bLengthChange": false,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/380cb78f450/i18n/Spanish.json'
+                },
+                "ajax": {
+                    "url": '@Url.Action("GetChoferesGrid", "Chofer")', //"/Chofer/GetChoferesGrid",
+                    "type": "POST",
+                    "datatype": "json",
+                    "error": function (request, status, error) {
+                        alert('Ocurrió un error al buscar los choferes. ' + error);
+                    },
+                },
+                "columns": [
+                    { "data": "IdChofer", "name": "IdChofer", "bSortable": true },
+                    { "data": "Cuit", "name": "Cuit", "bSortable": true },
+                    { "data": "Descripcion", "name": "Descripcion", "bSortable": true },
+                    { "data": "Activo", "name": "Activo", "bSortable": true }],
+                "columnDefs": [{
+                    "className": "dt-center",
+                    "targets": 4,
+                    "data": null,
+                    "defaultContent": '<td class="text-center valign-middle"><button class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i></button></td>'
+                }]
+            });
+
+            @*"defaultContent": '<td class="text-center valign-middle"><button class="btn btn-xs btn-primary" id="btnChofer" onclick=location.href='@Url.Action("Edit", "Chofer")?id='+ $("#Id_Of_Textbox").val()><i class="fa fa-pencil"></i></button></td>'*@
+            @*$('#GridChofer').on('click', '.btn-primary', function (e) {
+                alert(e.currentTarget.id)
+                id = e.currentTarget.id;
+
+
+
+                    "defaultContent": '<td class="text-center valign-middle"><button class="btn btn-xs btn-primary" id="btnChofer" onclick="location.href="@Url.Action("Edit", "Chofer")""><i class="fa fa-pencil"></i></button></td>'
+
+
+
+
+                //url = "mypage.com/Edit?p_something=" + id;
+
+                url = '@Url.Action("Edit", "Chofer")'
+                alert(url);
+
+                $('#styledModal').modal({
+                    remote: url
+                });
+                $('#styledModal').removeData();
+            });
+            @*oTable = $('#GridChofer').DataTable();
+            $("#GridChofer").click(function (e) {
+                //alert(oTable.columns(0).search($('#btnChofer').val().trim()));
+                debugger;
+                alert(oTable.row(this).data());
+                var row = $(this).parents('tr')[0];
+                var $buttonClicked = $(this);
+                var id = $buttonClicked.attr('data-toggle');
+                var options = { "backdrop": "static", keyboard: true };
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("Edit", "Chofer")',
+                    contentType: "application/json; charset=utf-8",
+                    data: { "Id": 1 },
+                    datatype: "json",
+                    success: function (data) {
+                        debugger;
+                        $('#myModalContent').html(data);
+                        $('#myModal').modal(options);
+                        $('#myModal').modal('show');
+
+                    },
+                    error: function () {
+                        alert("Dynamic content load failed.");
+                    }
+                });
+            });*@
+
+            @*$('#GridChofer tbody').on('click', 'button', function () {
+                //var data = table.row($(this).parents('tr')).data();
+                alert(" salary is: ");
+            });
+
+            function editreceipt(e) {
+                e.preventDefault();
+                var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+                var stockReceiptId = dataItem.StockReceiptID;
+
+                window.location.href = "@Url.Action("Update","StockReceipt")?stockReceiptId=" + stockReceiptId;
+            }*@
+
+            function openPopupWindow() {
+                debugger;
+                alert('Ingresa');
+                window.open('@Url.Action("GetChoferesCombo", "Edit")', 'Page', "width=300, height=200");
+                return false;
+            }
+
+            @*$("#GridChofer").click(function () {
+
+                var customerId = $("#GridChofer").attr("data-customerNumber");
+                $.ajax({
+                    type: "POST",
+                    data: "customerId=" + customerId,
+                    url: '@Url.Action("MyAction", "MyController")',
+                    success: function (result) {
+
+                    }
+                })});*@
+
+            //$('body').on('click', '#btnChofer', function () {
+            //    debugger;
+            //    //to get currently clicked row object
+            //    var row = $(this).parents('tr')[0];
+            //    var VALUE = table.row(row).data();
+            //    //for row data
+            //    alert(table.row(row).data());
+
+            //});
+
+            $("#cboChofer").select2({
+                ajax: {
+                    url: '@Url.Action("GetChoferesCombo", "Chofer")',
+                    dataType: 'json',
+                    delay: 100,
+                    minimumInputLength: 3,
+                    async: false,
+                    pagination: { more: true },
+                    data: function (params, page) {
+                        return {
+                            ChoferSearch: params.term,
+                            page: page || 1
+                        };
+                    },
+                    initSelection: function (params, page) {
+                        return {
+                            ChoferSearch: params.term,
+                            page: page || 1
+                        };
+                    },
+                    processResults: function (data, params) {
+                        var Results = [];
+                        var more = 0;
+                        if (data != null && data.length > 0) {
+                            more = (params.page * 10) < data.length;
+                            $.each(data, function (index, item) {
+                                Results.push({
+                                    id: item.IdChofer,
+                                    text: item.Cuit + '-' + item.Nombre + ' ' + item.Apellido
+                                });
+                            });
+                        }
+                        return {
+                            results: Results, pagination: true
+                        };
+                    },
+                    cache: true,
+                    error: function (request, status, error) {
+                        alert('Ocurrió un error al buscar un chofer. ' + error);
+                    },
+                    escapeMarkup: function (markup) {
+                        return markup;
+                    },
+                    templateResult: function (repo) {
+                        if (repo.loading) return repo.text;
+                        return repo.full_name;
+                    },
+                    templateSelection: function (repo) {
+                        return repo.full_name || repo.text;
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="content-page">
+        <div class="content">
+            <div class="container">
+                <div class="page-header">
+                    <h3 class="page-title">Administración de Choferes</h3>
+                    <ol class="breadcrumb">
+                        <li><a>CDP</a></li>
+                        <li><a>Adminitración</a></li>
+                        <li class="active">Chofer</li>
+                    </ol>
+                </div>
+
+
+
+
+
+                <form class="form-horizontal" method="POST" id="ChoferModel" action="../../Controllers/ChoferController.cs">
+                    <fieldset class="content-group">
+                        <div class="portlet portlet-boxed">
+                            <div class="portlet-header" style="text-align: left; align-content: flex-start">
+                                <h4 class="portlet-title" style="text-align: left; align-content: flex-start">Búsqueda</h4>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Chofer:</label>
+                                    <div class="col-md-10">
+                                        <select id="cboChofer" name="cboChofer" class="js-example-basic-single js-states form-control"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="portlet portlet-boxed portlet-table">
+                        <div class="portlet-header">
+                            <h4 class="portlet-title">
+                                <u>Resultado</u>
+                            </h4>
+                        </div>
+                        <div class="portlet-body">
+                            <table id="GridChofer" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>IdChofer</th>
+                                        <th>Cuit</th>
+                                        <th>Descripcion</th>
+                                        <th>Activo</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="styledModal" class="modal modal-styled fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 class="modal-title">Styled Modal</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.&hellip;</p>
+                </div> <!-- /.modal-body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Content>
